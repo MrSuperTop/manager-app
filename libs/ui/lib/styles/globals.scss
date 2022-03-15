@@ -1,0 +1,9 @@
+@use '~tailwindcss/base';
+@use '~tailwindcss/components';
+@use '~tailwindcss/utilities';
+
+body {
+  font-family: 'Noto Sans Display', sans-serif; 
+
+  @apply h-full font-medium;
+}

@@ -24,7 +24,13 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "semi": "off",
+        "@typescript-eslint/semi": ["warn", "always"],
+        "quotes": ["warn", "single"],
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": ["warn", "never"]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
