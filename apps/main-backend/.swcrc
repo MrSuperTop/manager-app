@@ -1,0 +1,15 @@
+{
+  "jsc": {
+    "target": "es2017",
+    "parser": {
+      "syntax": "typescript",
+      "topLevelAwait": true,
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": true
+    }
+  },
+  "module": {
+    "type": "commonjs"
+  }
+}

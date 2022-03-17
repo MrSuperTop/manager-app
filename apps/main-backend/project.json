@@ -1,0 +1,69 @@
+{
+  "root": "apps/main-backend",
+  "sourceRoot": "apps/main-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/main-backend",
+        "main": "apps/main-backend/src/main.ts",
+        "tsConfig": "apps/main-backend/tsconfig.app.json",
+        "assets": [
+          "apps/main-backend/src/config"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "apps/main-backend",
+        "commands": [
+          {
+            "command": "docker-compose up -d --remove-orphans"
+          },
+          {
+            "command": "yarn prisma generate --watch & yarn swc ./src/* -d ../../dist/apps/main-backend -w --config-file ./.swcrc --copy-files & yarn nodemon --watch ../../dist/apps/main-backend --ext js,json ../../dist/apps/main-backend/index.js"
+          }
+        ]
+      }
+    },
+    "migrate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "apps/main-backend",
+        "commands": [
+          {
+            "command": "yarn prisma migrate dev"
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/main-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/main-backend"],
+      "options": {
+        "jestConfig": "apps/main-backend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

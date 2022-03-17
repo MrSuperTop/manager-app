@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-manager-app/ui": ["libs/ui/lib/index.ts"],
-      "@nx-manager-app/ui/styles/*": ["libs/ui/lib/styles/*"]
+      "@nx-manager-app/ui": ["libs/ui/lib/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/apps/main-backend",
+    "rootDir": "./src",
+    "module": "commonjs",
+    "types": ["node"],
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "config/"],
+  "include": ["./**/*.ts"]
+}

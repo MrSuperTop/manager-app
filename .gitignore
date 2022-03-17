@@ -33,6 +33,9 @@ yarn-error.log
 testem.log
 /typings
 
+# Prisma
+apps/main-backend/prisma/migrations
+
 # System Files
 .DS_Store
 Thumbs.db
