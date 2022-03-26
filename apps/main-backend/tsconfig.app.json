@@ -2,7 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/apps/main-backend",
-    "rootDir": "./src",
     "module": "commonjs",
     "types": ["node"],
     "experimentalDecorators": true,
@@ -10,5 +9,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "config/"],
-  "include": ["./**/*.ts"]
+  "include": ["./**/*.ts", "../../libs/shared-utils/lib/utils/isEmail.utils.ts"]
 }

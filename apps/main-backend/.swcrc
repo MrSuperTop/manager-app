@@ -1,13 +1,23 @@
 {
   "jsc": {
     "target": "es2017",
+    "externalHelpers": true,
     "parser": {
       "syntax": "typescript",
       "topLevelAwait": true,
       "tsx": false,
       "decorators": true,
-      "dynamicImport": true
-    }
+      "dynamicImport": false
+    },
+    "transform": {
+      "decoratorMetadata": true
+    },
+    "paths": {
+      "@nx-manager-app/session-handler": ["libs/session-handler/src/index.ts"],
+      "@nx-manager-app/shared-utils": ["libs/shared-utils/lib/index.ts"],
+      "@nx-manager-app/ui": ["libs/ui/lib/index.ts"]
+    },
+    "baseUrl": "../.."
   },
   "module": {
     "type": "commonjs"

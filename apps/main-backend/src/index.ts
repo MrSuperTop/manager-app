@@ -4,6 +4,7 @@ import { setupMercurius } from './utils/setupMercurius';
 import fastifyCors from 'fastify-cors';
 import log from './logger';
 import config from './config';
+import fastifyCookie from 'fastify-cookie';
 
 const main = async () => {
   const app = fastify({
@@ -11,6 +12,9 @@ const main = async () => {
   });
 
   await app.register(fastifyCors, config.corsConfig);
+  await app.register(fastifyCookie, {
+    secret: config.cookies.secret
+  });
 
   await setupMercurius(app);
   app.listen(config.port, config.host, (error) => {
@@ -18,6 +22,8 @@ const main = async () => {
       log.error(error);
     }
   });
+
+  return app;
 };
 
-void main();
+export default main();

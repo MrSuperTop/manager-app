@@ -1,0 +1,19 @@
+port: 4000
+host: localhost
+cookies:
+  secret: 'signed_cookies_secret'
+corsConfig:
+  credentials: true
+  origin: http://localhost:3000
+redis:
+  port: 6379
+  host: 'localhost'
+session:
+  prefix: 'sess'
+  cookie:
+    name: 'sess_id'
+    httpOnly: true
+    maxAge: 2592000 # 30 days
+    sameSite: 'lax'
+    path: '/graphql'
+    signed: true

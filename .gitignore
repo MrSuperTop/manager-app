@@ -36,6 +36,9 @@ testem.log
 # Prisma
 apps/main-backend/prisma/migrations
 
+# Tokens and prod configs
+apps/main-backend/src/config/prod.yaml
+
 # System Files
 .DS_Store
 Thumbs.db

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
-import { getObjecKeysAsTuple } from '../../../utils/getObjectKeysAsTuple';
+import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
 import Loader from '../../Loader/Loader';
 import { ButtonProps, defaultButtonClasses, styleClasses } from '../Button/Button';
 import { useButtonGroupState } from '../Button/Group/state/ButtonGroupContext';

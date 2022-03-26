@@ -32,10 +32,16 @@
             "command": "docker-compose up -d --remove-orphans"
           },
           {
-            "command": "yarn prisma generate --watch & yarn swc ./src/* -d ../../dist/apps/main-backend -w --config-file ./.swcrc --copy-files & yarn nodemon --watch ../../dist/apps/main-backend --ext js,json ../../dist/apps/main-backend/index.js"
+            "command": "yarn prisma generate --watch & yarn swc ./src/* -d ../../dist/apps/main-backend/dist -w --config-file ./.swcrc --copy-files --delete-dir-on-start -s & yarn nodemon --watch ../../dist --ext js,yaml,json ../../dist/apps/main-backend/dist/index.js --delay 500ms"
           }
         ]
-      }
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ]
     },
     "migrate": {
       "executor": "@nrwl/workspace:run-commands",
@@ -45,6 +51,18 @@
         "commands": [
           {
             "command": "yarn prisma migrate dev"
+          }
+        ]
+      }
+    },
+    "migrate-force": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "apps/main-backend",
+        "commands": [
+          {
+            "command": "yarn prisma db push --force-reset"
           }
         ]
       }

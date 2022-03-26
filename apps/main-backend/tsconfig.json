@@ -2,6 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "files": [],
   "include": [],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true
+  },
   "references": [
     {
       "path": "./tsconfig.app.json"

@@ -15,5 +15,5 @@
     "../**/*.spec.tsx",
     "../**/*.spec.jsx"
   ],
-  "include": ["../lib/**/*", "*.js"]
+  "include": ["../lib/**/*", "*.js", "../../shared-utils/lib/getObjectKeysAsTuple.ts", "../lib/utils/zodAdapter.ts"]
 }

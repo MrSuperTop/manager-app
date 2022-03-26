@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { omit } from 'lodash-es';
 import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
-import { getObjecKeysAsTuple } from '../../../utils/getObjectKeysAsTuple';
+import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
 import Loader from '../../Loader/Loader';
 import Group from './Group/Group';
 import { useButtonGroupState } from './Group/state/ButtonGroupContext';

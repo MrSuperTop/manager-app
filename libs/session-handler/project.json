@@ -1,0 +1,43 @@
+{
+  "root": "libs/session-handler",
+  "sourceRoot": "libs/session-handler/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/session-handler",
+        "main": "libs/session-handler/src/index.ts",
+        "tsConfig": "libs/session-handler/tsconfig.lib.json",
+        "assets": ["libs/session-handler/*.md"]
+      }
+    },
+    "build-watch": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "watch": true,
+        "outputPath": "dist/libs/session-handler",
+        "main": "libs/session-handler/src/index.ts",
+        "tsConfig": "libs/session-handler/tsconfig.lib.json",
+        "assets": ["libs/session-handler/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/session-handler/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/session-handler"],
+      "options": {
+        "jestConfig": "libs/session-handler/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

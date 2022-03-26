@@ -4,6 +4,8 @@
     "main": "apps/main",
     "main-backend": "apps/main-backend",
     "main-e2e": "apps/main-e2e",
+    "session-handler": "libs/session-handler",
+    "shared-utils": "libs/shared-utils",
     "ui": "libs/ui"
   }
 }
