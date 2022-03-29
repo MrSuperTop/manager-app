@@ -3,6 +3,35 @@ import { FastifyCorsOptions } from 'fastify-cors';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { parse } from 'yaml';
+import { isProd } from '../constants/isProd';
+
+interface GmailTransporterConfig {
+  host: string,
+  port: number,
+  auth: {
+    type: 'oauth2',
+    user: string,
+    refreshToken: string
+  }
+};
+
+interface TestTransporterConfig {
+  host: string,
+  port: number,
+  auth: {
+    user: string,
+    pass: string
+  }
+};
+
+export type TransporterConfig = GmailTransporterConfig | TestTransporterConfig;
+
+export type namespaces = 'registrationConfirmation' | 'sessionData' | 'forgotPassword';
+export interface RedisNamespaceConfig {
+  prefix: string,
+  expires: number
+}
+
 interface Config {
   port: number,
   host: string,
@@ -11,17 +40,28 @@ interface Config {
     secret: string
   },
   session: {
-    prefix: string,
     cookie: CookieConfig
   },
   redis: {
     port: number,
-    host: string
+    host: string,
+    namespaces: Record<namespaces, RedisNamespaceConfig>
+  },
+  emails: {
+    gmail?: {
+      client_id: string,
+      client_secret: string,
+      redirect_uri: string,
+      refresh_token: string
+    },
+    nodemailer: {
+      transporter: TransporterConfig
+    }
   }
 }
 
 let relativeFilePath = '../dev.yaml';
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   relativeFilePath = '../prod.yaml';
 }
 

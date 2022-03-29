@@ -1,4 +1,4 @@
-import { Prisma, User } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import log from '../../../logger';
 import dayjs from 'dayjs';
 import mercurius from 'mercurius';
@@ -28,17 +28,4 @@ export const createUser = async (
       }
     }
   }
-};
-
-export const findUser = async (
-  id: number
-): Promise<User | null> => {
-  const user = await prisma.user.findFirst({
-    where: {
-      id
-    }
-  });
-
-
-  return user;
 };

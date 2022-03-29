@@ -4,6 +4,6 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "include": ["./**/*.ts", "../ui/lib/utils/zodAdapter.ts"],
+  "include": ["./**/*.ts"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }

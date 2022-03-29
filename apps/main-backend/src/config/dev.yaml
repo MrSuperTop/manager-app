@@ -8,8 +8,17 @@ corsConfig:
 redis:
   port: 6379
   host: 'localhost'
+  namespaces:
+    sessionData:
+      prefix: 'sess'
+      expires: 2592000 # 30 days
+    registrationConfirmation:
+      prefix: 'reg_conf'
+      expires: 259200 # 3 days
+    forgotPassword:
+      prefix: 'forgot_pass'
+      expires: 259200 # 3 days
 session:
-  prefix: 'sess'
   cookie:
     name: 'sess_id'
     httpOnly: true
@@ -17,3 +26,11 @@ session:
     sameSite: 'lax'
     path: '/graphql'
     signed: true
+emails:
+  nodemailer:
+    transporter:
+      host: 'smtp.ethereal.email'
+      port: 587
+      auth:
+        user: 'eriberto.littel94@ethereal.email'
+        pass: 'MVAxAqMsg2yrjpR6Pt'

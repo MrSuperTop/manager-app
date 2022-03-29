@@ -1,21 +1,22 @@
 import { User } from '../../../entities/User';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { LoginInput } from '../inputs/Login.input';
-import dayjs from 'dayjs';
 import mercurius from 'mercurius';
-import { prisma } from '../../../utils/setupPrisma';
 import { isEmail } from '@nx-manager-app/shared-utils';
 import { verify } from 'argon2';
 import { SessionData } from '../../../types/SessionData';
 import { Session } from '@nx-manager-app/session-handler';
-import { getSessionOptions } from '../../../utils/setSessionConfig';
 import { MyContext } from '../../../types/MyContext';
-import { v4 as uuid } from 'uuid';
+import { createSession } from '../services/session.service';
+import config from '../../../config';
+import { alreadyLoggedInError } from '../../../constants/errors';
+import { redis } from '../../../utils/setupRedis';
+import { prisma } from '../../../utils/setupPrisma';
 
 const { ErrorWithProps } = mercurius;
 const invalidCredentialsError = new ErrorWithProps('Invalid login cretentials', {
   code: 'INVALID_CRETENDIALS',
-  timestamp: dayjs().toISOString()
+  timestamp: new Date().toISOString()
 });
 
 @Resolver(User)
@@ -26,8 +27,12 @@ export class LoginResolver {
       password,
       usernameOrEmail
     }: LoginInput,
-    @Ctx() { reply }: MyContext
+    @Ctx() { req, reply }: MyContext
   ) {
+    if (req.cookies[config.session.cookie.name]) {
+      throw alreadyLoggedInError;
+    }
+
     const user = await prisma.user.findUnique({
       where: isEmail(usernameOrEmail)
         ? {
@@ -35,7 +40,10 @@ export class LoginResolver {
           }
         : {
             username: usernameOrEmail
-          }
+          },
+      include: {
+        sessions: true
+      }
     });
 
     if (!user) {
@@ -48,13 +56,26 @@ export class LoginResolver {
       throw invalidCredentialsError;
     }
 
-    const sessionId = uuid();
-    const session = new Session<SessionData>(getSessionOptions({
-      reply,
-      sessionId
-    }));
+    const dbSession = await createSession({
+      userId: user.id,
+      userAgent: req.headers['user-agent']
+    });
 
-    session.data.userId = user.id;
+    const session = new Session<SessionData>({
+      sessionId: dbSession.id,
+      redis: {
+        client: redis,
+        prefix: config.redis.namespaces.sessionData.prefix
+      },
+      reply,
+      cookie: config.session.cookie
+    });
+
+    session.data = {
+      userId: user.id
+    };
+
+    await session.setCookie().save();
 
     return user;
   }

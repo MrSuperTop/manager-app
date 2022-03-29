@@ -1,19 +1,23 @@
 import logger from 'pino';
-import dayjs from 'dayjs';
+import { isProd } from '../constants/isProd';
 
-const log = logger({
-  name: 'main',
+const extensions = isProd ? {} : {
   transport: {
     target: 'pino-pretty'
   },
-  base: {
-    pid: false
-  },
   timestamp: () => {
-    const time = dayjs().format();
+    const time = new Date().toISOString();
 
     return `,"time":"${time}"`;
   }
+};
+
+const log = logger({
+  name: 'main',
+  base: {
+    pid: false
+  },
+  ...extensions
 });
 
 log.info('Logger Created');

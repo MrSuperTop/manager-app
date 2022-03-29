@@ -1,41 +1,15 @@
 import Redis from 'ioredis';
-import { Logger } from 'pino';
 import { FastifyReply } from 'fastify';
 import { CookieConfig, SessionOptions } from './types/SessionOptions';
 import { omit } from 'lodash';
+import { SessionId } from './types/SessionId';
 
 export class Session<T extends object> {
   private redisPrefix: string;
-  private sessionId: string;
+  public id: SessionId;
   private redis: Redis;
-  private logger: Logger;
   private fastifyReply: FastifyReply;
   private cookieConfig: CookieConfig;
-
-  private dataHandler = {
-    get: (
-      target: T,
-      name: keyof T
-    ) => {
-      return target[name];
-    },
-    
-    set: (
-      target: T,
-      name: keyof T,
-      value: T[keyof T]
-    ) => {
-      const newValue = {
-        ...target,
-        [name]: value
-      };
-
-      target[name] = value;
-      this.redis.set(this.redisKey, JSON.stringify(newValue));
-  
-      return true;
-    }
-  };
 
   public data: T;
 
@@ -43,22 +17,24 @@ export class Session<T extends object> {
     {
       redis,
       sessionId,
-      logger,
       reply,
       cookie
     }: SessionOptions
   ) {
     this.redis = redis.client;
     this.redisPrefix = redis.prefix;
-    this.sessionId = sessionId;
-    this.logger = logger;
+    this.id = sessionId;
     this.fastifyReply = reply;
     this.cookieConfig = cookie;
 
-    this.data = new Proxy<T>(Object(), this.dataHandler as ProxyHandler<T>);
+    this.data = Object();
   }
 
-  async load (): Promise<boolean> {
+  get redisKey () {
+    return `${this.redisPrefix}:${this.id}`;
+  }
+
+  async   load (): Promise<boolean> {
     try {
       const restoredData = await this.redis.get(
         this.redisKey
@@ -66,25 +42,45 @@ export class Session<T extends object> {
 
       if (!restoredData) return false;
 
-      this.data = new Proxy<T>(JSON.parse(restoredData), this.dataHandler as ProxyHandler<T>);
+      this.data = JSON.parse(restoredData);
 
       return true;
     } catch (error) {
-      this.logger.error(error);
-
       return false;
     }
+  }
+
+  async save () {
+    await this.redis.set(
+      this.redisKey,
+      JSON.stringify(this.data)
+    );
   }
 
   setCookie () {
     this.fastifyReply.setCookie(
       this.cookieConfig.name,
-      this.sessionId,
+      JSON.stringify(this.id),
       omit(this.cookieConfig, 'name')
     );
+
+    return this;
   }
 
-  get redisKey () {
-    return `${this.redisPrefix}:${this.sessionId}`;
+  async destroy () {
+    try {
+      this.fastifyReply.clearCookie(
+        this.cookieConfig.name,
+        {
+          path: this.cookieConfig.path
+        }
+      );
+
+      await this.redis.del(this.redisKey);
+    } catch (error) {
+      return false;
+    }
+
+    return true;
   }
 }

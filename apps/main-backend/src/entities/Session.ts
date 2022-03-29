@@ -1,22 +1,16 @@
 import { Field, ObjectType } from 'type-graphql';
-import { Session } from './Session';
+import { User } from './User';
 
 @ObjectType()
-export class User {
+export class Session {
   @Field()
     id!: number;
-
-  @Field()
-    username!: string;
-
-  @Field()
-    email!: string;
   
-  @Field(() => [Session])
-    sessions!: Session[];
+  @Field(() => User)
+    user!: User;
 
   @Field()
-    emailConfirmed!: boolean;
+    userAgent!: string;
 
   @Field(() => String)
     updatedAt: Date = new Date();

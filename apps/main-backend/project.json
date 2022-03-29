@@ -3,25 +3,6 @@
   "sourceRoot": "apps/main-backend/src",
   "projectType": "application",
   "targets": {
-    "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/main-backend",
-        "main": "apps/main-backend/src/main.ts",
-        "tsConfig": "apps/main-backend/tsconfig.app.json",
-        "assets": [
-          "apps/main-backend/src/config"
-        ]
-      },
-      "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false
-        }
-      }
-    },
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
@@ -33,6 +14,24 @@
           },
           {
             "command": "yarn prisma generate --watch & yarn swc ./src/* -d ../../dist/apps/main-backend/dist -w --config-file ./.swcrc --copy-files --delete-dir-on-start -s & yarn nodemon --watch ../../dist --ext js,yaml,json ../../dist/apps/main-backend/dist/index.js --delay 500ms"
+          }
+        ]
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ]
+    },
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "apps/main-backend",
+        "commands": [
+          {
+            "command": "yarn swc ./src/* -d ../../dist/apps/main-backend/dist --config-file ./.swcrc --copy-files --delete-dir-on-start -s"
           }
         ]
       },

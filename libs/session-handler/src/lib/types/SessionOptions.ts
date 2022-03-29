@@ -1,7 +1,7 @@
 import { FastifyReply } from 'fastify';
 import { CookieSerializeOptions } from 'fastify-cookie';
 import Redis from 'ioredis';
-import { Logger } from 'pino';
+import { SessionId } from './SessionId';
 
 export interface CookieConfig extends CookieSerializeOptions {
   name: string
@@ -12,8 +12,7 @@ export interface SessionOptions {
     client: Redis,
     prefix: string
   },
-  logger: Logger,
-  sessionId: string,
+  sessionId: SessionId,
   reply: FastifyReply,
-  cookie: CookieConfig
+  cookie: CookieConfig,
 }

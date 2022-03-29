@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .confirm {
+      width: 100%;
+      height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 5rem;
+    }
+
+    .confirm--code {
+      color: black;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: .75rem;
+      border: 1px solid #111827;
+      border-radius: .75rem;
+    }
+  </style>
+
+  <div
+    class='confirm'
+  >
+    <h2>Your confirmation code is:</h2>
+    <div
+      class='confirm--code'
+    >
+      <%= code %>
+    </>
+  </div>
+
+  <footer>Delivered with ❤️ by manager-app and gmail</footer>
+</body>
+</html>
