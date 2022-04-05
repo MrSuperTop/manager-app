@@ -19,7 +19,8 @@ export class Session<T extends object> {
       sessionId,
       reply,
       cookie
-    }: SessionOptions
+    }: SessionOptions,
+    customData: T = Object()
   ) {
     this.redis = redis.client;
     this.redisPrefix = redis.prefix;
@@ -27,7 +28,7 @@ export class Session<T extends object> {
     this.fastifyReply = reply;
     this.cookieConfig = cookie;
 
-    this.data = Object();
+    this.data = customData;
   }
 
   get redisKey () {
@@ -67,14 +68,18 @@ export class Session<T extends object> {
     return this;
   }
 
+  clearCookie () {
+    this.fastifyReply.clearCookie(
+      this.cookieConfig.name,
+      {
+        path: this.cookieConfig.path
+      }
+    );
+  }
+
   async destroy () {
     try {
-      this.fastifyReply.clearCookie(
-        this.cookieConfig.name,
-        {
-          path: this.cookieConfig.path
-        }
-      );
+      this.clearCookie();
 
       await this.redis.del(this.redisKey);
     } catch (error) {

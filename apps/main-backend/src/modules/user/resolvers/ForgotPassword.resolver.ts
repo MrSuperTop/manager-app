@@ -1,10 +1,9 @@
-import { Arg, Mutation, Resolver, UseMiddleware } from 'type-graphql';
-import { isAuth } from '../../../middleware/isAuth';
+import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { sendEmail } from '../../../utils/emails/sendEmail';
 import config from '../../../config';
 import { redis } from '../../../utils/setupRedis';
-import { prisma } from '../../../utils/setupPrisma';
 import { getRedisKey } from '../../../utils/getRedisKey';
+import { Context } from '../../../types/Context';
 import { getTemplate } from '../../../utils/emails/getTemplate';
 
 const sendForgotPasswordEmail = async (
@@ -22,10 +21,10 @@ const sendForgotPasswordEmail = async (
 
 @Resolver()
 export class ForgotPasswordResolver {
-  @UseMiddleware(isAuth)
   @Mutation(() => String)
   async forgotPassword (
-    @Arg('email') email: string
+    @Arg('email') email: string,
+    @Ctx() { prisma }: Context
   ) {
     const user = await prisma.user.findUnique({
       where: {

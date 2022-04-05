@@ -1,15 +1,14 @@
 import { User } from '../../../entities/User';
 import { Ctx, Query, Resolver, UseMiddleware } from 'type-graphql';
-import { MyContextWithSession } from '../../../types/MyContext';
+import { ContextWithSession } from '../../../types/Context';
 import { isAuth } from '../../../middleware/isAuth';
-import { prisma } from '../../../utils/setupPrisma';
 
 @Resolver()
 export class MeResolver {
-  @UseMiddleware(isAuth)
+  @UseMiddleware(isAuth())
   @Query(() => User)
   async me (
-    @Ctx() { session: { data } }: MyContextWithSession
+    @Ctx() { session: { data }, prisma }: ContextWithSession
   ) {
     const user = await prisma.user.findUnique({
       where: {

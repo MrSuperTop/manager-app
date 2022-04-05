@@ -1,24 +1,14 @@
 import { User } from '../../../entities/User';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { LoginInput } from '../inputs/Login.input';
-import mercurius from 'mercurius';
 import { isEmail } from '@nx-manager-app/shared-utils';
 import { verify } from 'argon2';
-import { SessionData } from '../../../types/SessionData';
-import { Session } from '@nx-manager-app/session-handler';
-import { MyContext } from '../../../types/MyContext';
+import { Context } from '../../../types/Context';
 import { createSession } from '../services/session.service';
 import config from '../../../config';
-import { alreadyLoggedInError } from '../../../constants/errors';
+import { alreadyLoggedInError, invalidCredentialsError } from '../../../constants/errors';
 import { redis } from '../../../utils/setupRedis';
-import { prisma } from '../../../utils/setupPrisma';
-
-const { ErrorWithProps } = mercurius;
-const invalidCredentialsError = new ErrorWithProps('Invalid login cretentials', {
-  code: 'INVALID_CRETENDIALS',
-  timestamp: new Date().toISOString()
-});
-
+import { UserSession } from '../../../utils/UserSession';
 @Resolver(User)
 export class LoginResolver {
   @Mutation(() => User)
@@ -27,7 +17,7 @@ export class LoginResolver {
       password,
       usernameOrEmail
     }: LoginInput,
-    @Ctx() { req, reply }: MyContext
+    @Ctx() { req, reply, prisma }: Context
   ) {
     if (req.cookies[config.session.cookie.name]) {
       throw alreadyLoggedInError;
@@ -46,7 +36,7 @@ export class LoginResolver {
       }
     });
 
-    if (!user) {
+    if (!user || user.authType === 'oauth') {
       throw invalidCredentialsError;
     }
 
@@ -59,21 +49,14 @@ export class LoginResolver {
     const dbSession = await createSession({
       userId: user.id,
       userAgent: req.headers['user-agent']
-    });
+    }, prisma);
 
-    const session = new Session<SessionData>({
-      sessionId: dbSession.id,
-      redis: {
-        client: redis,
-        prefix: config.redis.namespaces.sessionData.prefix
-      },
+    const session = new UserSession({
+      redis,
       reply,
-      cookie: config.session.cookie
-    });
-
-    session.data = {
+      sessionId: dbSession.id,
       userId: user.id
-    };
+    });
 
     await session.setCookie().save();
 

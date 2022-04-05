@@ -32,6 +32,12 @@ export interface RedisNamespaceConfig {
   expires: number
 }
 
+export interface OAuthProviderConfig {
+  clientId: string,
+  clientSecret: string,
+  redirect: string
+}
+
 interface Config {
   port: number,
   host: string,
@@ -39,6 +45,8 @@ interface Config {
   cookies: {
     secret: string
   },
+  tracing: boolean
+  oauth: Record<'google' | 'github', OAuthProviderConfig>,
   session: {
     cookie: CookieConfig
   },

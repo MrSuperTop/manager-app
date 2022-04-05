@@ -1,18 +1,20 @@
-import { Prisma } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import log from '../../../logger';
 import dayjs from 'dayjs';
 import mercurius from 'mercurius';
-import { prisma } from '../../../utils/setupPrisma';
-import { RegisterInput } from '../inputs/Register.input';
 
 const { ErrorWithProps } = mercurius;
 
 export const createUser = async (
-  input: RegisterInput
+  data: Prisma.UserCreateInput,
+  prisma: PrismaClient
 ) => {
   try {
     const user = await prisma.user.create({
-      data: input
+      data,
+      include: {
+        sessions: true
+      }
     });
 
     return user;

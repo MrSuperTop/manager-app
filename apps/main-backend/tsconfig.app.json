@@ -9,5 +9,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "config/"],
-  "include": ["./**/*.ts", "../../libs/shared-utils/lib/utils/isEmail.utils.ts"]
+  "include": ["./**/*.ts", "../../libs/**/*.ts"]
 }

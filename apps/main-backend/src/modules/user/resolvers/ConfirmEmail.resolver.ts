@@ -1,20 +1,19 @@
 import { Arg, Ctx, Mutation, Resolver, UseMiddleware } from 'type-graphql';
-import { MyContextWithSession } from '../../../types/MyContext';
+import { ContextWithSession } from '../../../types/Context';
 import { isAuth } from '../../../middleware/isAuth';
 import { redis } from '../../../utils/setupRedis';
 import { ConfirmEmailInput } from '../inputs/ConfirmEmail.input';
 import { ConfirmationPayload } from '../../../types/ConfirmationPayload';
 import { alreadyConfirmedEmail, tokenExpiredError } from '../../../constants/errors';
-import { prisma } from '../../../utils/setupPrisma';
 import { getRedisKey } from '../../../utils/getRedisKey';
 
 @Resolver()
 export class ConfirmEmailResolver {
-  @UseMiddleware(isAuth)
+  @UseMiddleware(isAuth())
   @Mutation(() => Boolean)
   async confirmEmail (
     @Arg('input') { token, code }: ConfirmEmailInput,
-    @Ctx() { session: { data } }: MyContextWithSession
+    @Ctx() { session: { data }, prisma }: ContextWithSession
   ) {
     const { key } = getRedisKey('registrationConfirmation', token);
     const rawConfirmationData = await redis.get(key);

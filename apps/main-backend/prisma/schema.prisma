@@ -1,3 +1,6 @@
+// Waiting for https://github.com/prisma/prisma/issues/11356 to be resolved
+// To revert openssl version after support is added use: https://fedingo.com/how-to-install-openssl-in-ubuntu/
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,9 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum AuthType {
+  password
+  oauth
+}
+
 model Session {
   id    Int     @id @default(autoincrement())
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
   userAgent String
   createdAt  DateTime   @default(now())
@@ -20,8 +28,9 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   username String @unique
-  password String
+  password String?
   sessions Session[]
+  authType AuthType @default(password)
   emailConfirmed Boolean @default(false)
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt

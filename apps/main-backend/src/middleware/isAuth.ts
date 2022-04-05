@@ -1,36 +1,39 @@
-import { Session } from '@nx-manager-app/session-handler';
 import { MiddlewareFn, NextFn } from 'type-graphql';
 import config from '../config';
-import { MyContextWithSession } from '../types/MyContext';
-import { SessionData } from '../types/SessionData';
+import { ContextWithSession } from '../types/Context';
 import { redis } from '../utils/setupRedis';
+import { UserSession } from '../utils/UserSession';
 
 const notAuthError = new Error('Not Authenticated');
 
-export const isAuth: MiddlewareFn<MyContextWithSession> = async (
-  { context },
-  next: NextFn
-) => {
-  const cookieName = config.session.cookie.name;
-  let sessionId = context.req.cookies[cookieName];
-  if (!sessionId) {
-    throw notAuthError;
-  }
+export const isAuth = (
+  createSession = true
+): MiddlewareFn<ContextWithSession> => {
+  return async (
+    { context },
+    next: NextFn
+  ) => {
+    const cookieName = config.session.cookie.name;
+    let sessionId = context.req.cookies[cookieName];
+    if (!sessionId) {
+      throw notAuthError;
+    }
 
-  sessionId = context.req.unsignCookie(sessionId).value;
+    if (!createSession) {
+      return next();
+    }
 
-  const loadedSession = new Session<SessionData>({
-    sessionId: Number(sessionId),
-    redis: {
-      client: redis,
-      prefix: config.redis.namespaces.sessionData.prefix
-    },
-    reply: context.reply,
-    cookie: config.session.cookie
-  });
+    sessionId = context.req.unsignCookie(sessionId).value;
 
-  await loadedSession.load();
-  context.session = loadedSession;
-
-  return next();
+    const loadedSession = new UserSession({
+      redis,
+      reply: context.reply,
+      sessionId
+    });
+  
+    await loadedSession.load();
+    context.session = loadedSession;
+  
+    return next();
+  };
 };

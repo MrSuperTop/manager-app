@@ -4,8 +4,13 @@ import Mail from 'nodemailer/lib/mailer';
 import config from '../../config';
 import { isProd } from '../../constants/isProd';
 import log from '../../logger';
+import { OAuth2Client } from 'google-auth-library';
 
-const getAccessToken = async () => {
+let oauth2Client: OAuth2Client;
+
+
+
+if (isProd) {
   const {
     client_id: clientId,
     client_secret: clientSecret,
@@ -13,7 +18,7 @@ const getAccessToken = async () => {
     refresh_token: refreshToken
   } = config.emails.gmail;
 
-  const oauth2Client = new google.auth.OAuth2(
+  oauth2Client = new google.auth.OAuth2(
     clientId,
     clientSecret,
     redirectUri
@@ -22,31 +27,19 @@ const getAccessToken = async () => {
   oauth2Client.setCredentials({
     refresh_token: refreshToken
   });
-
-  const accessToken = await new Promise<string>((resolve, reject) => {
-    oauth2Client.getAccessToken((err, token) => {
-      if (err) {
-        log.error(err, 'Wasn\'t able to get an accessToken from gmail api to send an email');
-        reject(err);
-      }
-
-      resolve(token);
-    });
-  });
-
-  return accessToken;
-};
+}
 
 const createTransporter = async () => {
   const transporterConfig = config.emails.nodemailer.transporter;
 
   if (isProd) {
-    const accessToken = await getAccessToken();
+    const { token } = await oauth2Client.getAccessToken();
+
     const transporter = createTransport({
       ...transporterConfig,
       auth: {
         ...transporterConfig.auth,
-        accessToken: accessToken
+        accessToken: token
       }
     });
   

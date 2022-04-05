@@ -4,7 +4,17 @@ cookies:
   secret: 'signed_cookies_secret'
 corsConfig:
   credentials: true
-  origin: http://localhost:3000
+  origin: "http://localhost:4000"
+tracing: false
+oauth:
+  google:
+    clientId: '611226891059-q4u6coip9jg6qkiat5midobpdu94mh8p.apps.googleusercontent.com'
+    clientSecret: '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'
+    redirect: 'http://localhost:5000'
+  github:
+    clientId: '10915aed9a65bb6e508b'
+    clientSecret: '7e4c5ac4b446a2c856aa66fbdda5ff288d272f76'
+    redirect: 'http://localhost:5000'
 redis:
   port: 6379
   host: 'localhost'
@@ -17,7 +27,7 @@ redis:
       expires: 259200 # 3 days
     forgotPassword:
       prefix: 'forgot_pass'
-      expires: 259200 # 3 days
+      expires: 900 # 15 minutes
 session:
   cookie:
     name: 'sess_id'

@@ -1,5 +1,10 @@
-import { Field, ObjectType } from 'type-graphql';
+import { AuthType } from '@prisma/client';
+import { Field, ObjectType, registerEnumType } from 'type-graphql';
 import { Session } from './Session';
+
+registerEnumType(AuthType, {
+  name: 'AuthType'
+});
 
 @ObjectType()
 export class User {
@@ -17,6 +22,9 @@ export class User {
 
   @Field()
     emailConfirmed!: boolean;
+
+  @Field(() => AuthType)
+    authType!: AuthType;
 
   @Field(() => String)
     updatedAt: Date = new Date();

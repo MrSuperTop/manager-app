@@ -1,18 +1,19 @@
-import { Arg, Mutation, Resolver } from 'type-graphql';
+import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { redis } from '../../../utils/setupRedis';
-import { prisma } from '../../../utils/setupPrisma';
 import { ChangePasswordInput } from '../inputs/ChangePassword.input';
 import { User } from '../../../entities/User';
 import { tokenExpiredError, userDoesNotExistsError } from '../../../constants/errors';
 import { hash } from 'argon2';
 import log from '../../../logger';
 import { getRedisKey } from '../../../utils/getRedisKey';
+import { Context } from '../../../types/Context';
 
 @Resolver()
 export class ChangePasswordResolver {
   @Mutation(() => User)
   async changePassword (
-    @Arg('input') { token, newPassword }: ChangePasswordInput
+    @Arg('input') { token, newPassword }: ChangePasswordInput,
+    @Ctx() { prisma }: Context
   ) {
     const { key } = getRedisKey('forgotPassword', token);
     const rawUserId = await redis.get(key);

@@ -21,3 +21,14 @@ export const userDoesNotExistsError = new ErrorWithProps('This user doesn\'t exi
   code: 'USER_DOES_NOT_EXISTS',
   timestamp: new Date().toISOString()
 });
+
+export const invalidCredentialsError = new ErrorWithProps('Invalid login cretentials', {
+  code: 'INVALID_CRETENDIALS',
+  timestamp: new Date().toISOString()
+});
+
+export const invalidCodeError = new ErrorWithProps('Invalid oauth code provided', {
+  code: 'INVALID_OAUTH_CODE',
+  timestamp: new Date().toISOString()
+});
+

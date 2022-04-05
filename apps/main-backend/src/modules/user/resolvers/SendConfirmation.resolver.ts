@@ -1,12 +1,11 @@
 import { Ctx, Mutation, Resolver, UseMiddleware } from 'type-graphql';
-import { MyContextWithSession } from '../../../types/MyContext';
+import { ContextWithSession } from '../../../types/Context';
 import { isAuth } from '../../../middleware/isAuth';
 import { sendEmail } from '../../../utils/emails/sendEmail';
 import { generateConfirmationCode } from '../../../utils/generateConfimationCode';
 import { redis } from '../../../utils/setupRedis';
 import { ConfirmationPayload } from '../../../types/ConfirmationPayload';
 import { alreadyConfirmedEmail } from '../../../constants/errors';
-import { prisma } from '../../../utils/setupPrisma';
 import { getRedisKey } from '../../../utils/getRedisKey';
 import { getTemplate } from '../../../utils/emails/getTemplate';
 
@@ -24,10 +23,10 @@ const sendConfirmationEmail = async (
 
 @Resolver()
 export class SendConfirmationResolver {
-  @UseMiddleware(isAuth)
+  @UseMiddleware(isAuth())
   @Mutation(() => String)
   async sendConfirmation (
-    @Ctx() { session: { data } }: MyContextWithSession
+    @Ctx() { session: { data }, prisma }: ContextWithSession
   ) {
     const user = await prisma.user.findUnique({
       where: {
