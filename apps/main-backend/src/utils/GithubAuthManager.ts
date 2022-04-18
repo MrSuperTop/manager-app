@@ -1,11 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
-import { FullUserInfo } from '../types/github';
+import { GithubUserInfo } from '../../../../libs/oauth-manager/src/lib/types/github';
 
 interface GithubAuthManagerOptions {
   clientId: string,
   clientSecret: string
 }
 
+// TOOO: Move functionality to a new class "OAuthManager" which will handle github as well as other oauth providers, this will allow to reate only on resolver for authentication with 3rd party auth providers
 export class GithubAuthManager {
   public clientId: string;
   public clientSecret: string;
@@ -41,7 +42,7 @@ export class GithubAuthManager {
     return response.data.access_token;
   }
 
-  async getUser (): Promise<FullUserInfo> {
+  async getUser (): Promise<GithubUserInfo> {
     const promises = [];
 
     const github = await axios.create({

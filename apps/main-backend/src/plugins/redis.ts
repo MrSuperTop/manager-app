@@ -8,11 +8,10 @@ declare module 'fastify' {
     redis: Redis
   }
 }
+const { port, host } = config.redis;
+export const redis = new Redis(port, host);
 
 const redisPlugin: FastifyPluginAsync = fp(async (app) => {
-  const { port, host } = config.redis;
-  const redis = new Redis(port, host);
-
   app.decorate('redis', redis);
 });
 

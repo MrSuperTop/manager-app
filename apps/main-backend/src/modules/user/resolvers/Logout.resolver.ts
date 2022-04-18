@@ -8,11 +8,11 @@ export class MeResolver {
   @UseMiddleware(isAuth())
   @Mutation(() => Boolean)
   async logout (
-    @Ctx() { session, prisma }: ContextWithSession
+    @Ctx() { session }: ContextWithSession
   ) {
     await deleteSession({
       id: session.id
-    }, prisma);
+    });
 
     const result = await session.destroy();
 

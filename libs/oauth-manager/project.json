@@ -1,0 +1,33 @@
+{
+  "root": "libs/oauth-manager",
+  "sourceRoot": "libs/oauth-manager/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/oauth-manager",
+        "main": "libs/oauth-manager/src/index.ts",
+        "tsConfig": "libs/oauth-manager/tsconfig.lib.json",
+        "assets": ["libs/oauth-manager/*.md"],
+        "skipTypeCheck": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/oauth-manager/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/oauth-manager"],
+      "options": {
+        "jestConfig": "libs/oauth-manager/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,7 +1,6 @@
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { sendEmail } from '../../../utils/emails/sendEmail';
 import config from '../../../config';
-import { redis } from '../../../utils/setupRedis';
 import { getRedisKey } from '../../../utils/getRedisKey';
 import { Context } from '../../../types/Context';
 import { getTemplate } from '../../../utils/emails/getTemplate';
@@ -24,7 +23,7 @@ export class ForgotPasswordResolver {
   @Mutation(() => String)
   async forgotPassword (
     @Arg('email') email: string,
-    @Ctx() { prisma }: Context
+    @Ctx() { prisma, redis }: Context
   ) {
     const user = await prisma.user.findUnique({
       where: {

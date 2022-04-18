@@ -1,7 +1,6 @@
 import { MiddlewareFn, NextFn } from 'type-graphql';
 import config from '../config';
 import { ContextWithSession } from '../types/Context';
-import { redis } from '../utils/setupRedis';
 import { UserSession } from '../utils/UserSession';
 
 const notAuthError = new Error('Not Authenticated');
@@ -26,7 +25,7 @@ export const isAuth = (
     sessionId = context.req.unsignCookie(sessionId).value;
 
     const loadedSession = new UserSession({
-      redis,
+      redis: context.redis,
       reply: context.reply,
       sessionId
     });

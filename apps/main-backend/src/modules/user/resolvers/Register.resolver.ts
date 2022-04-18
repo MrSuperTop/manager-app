@@ -3,7 +3,6 @@ import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { RegisterInput } from '../inputs/Register.input';
 import { hash } from 'argon2';
 import { Context } from '../../../types/Context';
-import { redis } from '../../../utils/setupRedis';
 import config from '../../../config';
 import { alreadyLoggedInError } from '../../../constants/errors';
 import { createUser } from '../services/user.service';
@@ -14,7 +13,7 @@ export class RegisterResolver {
   @Mutation(() => User)
   async register (
     @Arg('input') input: RegisterInput,
-    @Ctx() { req, reply, prisma }: Context
+    @Ctx() { req, reply, redis }: Context
   ) {
     if (req.cookies[config.session.cookie.name]) {
       throw alreadyLoggedInError;
@@ -29,7 +28,7 @@ export class RegisterResolver {
           userAgent: req.headers['user-agent']
         }
       }
-    }, prisma);
+    });
 
     const session = new UserSession({
       redis,

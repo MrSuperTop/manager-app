@@ -2,8 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
+    "esModuleInterop": true,
     "module": "commonjs",
     "types": ["jest", "node"]
   },
-  "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
+  "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts", "../../libs/test-client/**/*.ts", "./tests/**/*.ts", "./src/**/*.ts", "../../libs/oauth-manager/src/lib/types/github.ts"]
 }

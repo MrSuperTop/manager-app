@@ -3,7 +3,6 @@ import { ContextWithSession } from '../../../types/Context';
 import { isAuth } from '../../../middleware/isAuth';
 import { sendEmail } from '../../../utils/emails/sendEmail';
 import { generateConfirmationCode } from '../../../utils/generateConfimationCode';
-import { redis } from '../../../utils/setupRedis';
 import { ConfirmationPayload } from '../../../types/ConfirmationPayload';
 import { alreadyConfirmedEmail } from '../../../constants/errors';
 import { getRedisKey } from '../../../utils/getRedisKey';
@@ -26,7 +25,7 @@ export class SendConfirmationResolver {
   @UseMiddleware(isAuth())
   @Mutation(() => String)
   async sendConfirmation (
-    @Ctx() { session: { data }, prisma }: ContextWithSession
+    @Ctx() { session: { data }, prisma, redis }: ContextWithSession
   ) {
     const user = await prisma.user.findUnique({
       where: {

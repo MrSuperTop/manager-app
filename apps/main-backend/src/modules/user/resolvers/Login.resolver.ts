@@ -7,7 +7,6 @@ import { Context } from '../../../types/Context';
 import { createSession } from '../services/session.service';
 import config from '../../../config';
 import { alreadyLoggedInError, invalidCredentialsError } from '../../../constants/errors';
-import { redis } from '../../../utils/setupRedis';
 import { UserSession } from '../../../utils/UserSession';
 @Resolver(User)
 export class LoginResolver {
@@ -17,7 +16,7 @@ export class LoginResolver {
       password,
       usernameOrEmail
     }: LoginInput,
-    @Ctx() { req, reply, prisma }: Context
+    @Ctx() { req, reply, prisma, redis }: Context
   ) {
     if (req.cookies[config.session.cookie.name]) {
       throw alreadyLoggedInError;
@@ -49,7 +48,7 @@ export class LoginResolver {
     const dbSession = await createSession({
       userId: user.id,
       userAgent: req.headers['user-agent']
-    }, prisma);
+    });
 
     const session = new UserSession({
       redis,

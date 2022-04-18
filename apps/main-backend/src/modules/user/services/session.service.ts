@@ -1,9 +1,8 @@
-import { Prisma, PrismaClient } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+import { prisma } from '../../../plugins/prisma';
 
-// Incaplusate custom session class creation in the function
 export const createSession = async (
-  data: Prisma.SessionCreateArgs['data'],
-  prisma: PrismaClient
+  data: Prisma.SessionCreateArgs['data']
 ) => {
   const session = await prisma.session.create({
     data
@@ -13,8 +12,7 @@ export const createSession = async (
 };
 
 export const deleteSession = async (
-  where: Prisma.SessionDeleteArgs['where'],
-  prisma: PrismaClient
+  where: Prisma.SessionDeleteArgs['where']
 ) => {
   const deletedSession = await prisma.session.delete({
     where

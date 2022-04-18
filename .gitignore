@@ -38,6 +38,9 @@ apps/main-backend/prisma/migrations
 
 # Tokens and prod configs
 apps/main-backend/src/config/prod.yaml
+apps/main-backend/src/config/dev.yaml
+libs/oauth-manager/tests/config/test.yml
+libs/oauth-manager/tests/config/states
 
 # System Files
 .DS_Store

@@ -7,4 +7,7 @@ export class AuthUrls {
 
   @Field()
     github: string;
+
+  @Field()
+    discord: string;
 }

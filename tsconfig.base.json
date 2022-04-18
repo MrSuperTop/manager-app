@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-manager-app/oauth-manager": ["libs/oauth-manager/src/index.ts"],
       "@nx-manager-app/session-handler": ["libs/session-handler/src/index.ts"],
       "@nx-manager-app/shared-utils": ["libs/shared-utils/lib/index.ts"],
+      "@nx-manager-app/test-client": ["libs/test-client/src/index.ts"],
       "@nx-manager-app/ui": ["libs/ui/lib/index.ts"]
     }
   },

@@ -5,11 +5,11 @@ import { omit } from 'lodash';
 import { SessionId } from './types/SessionId';
 
 export class Session<T extends object> {
-  private redisPrefix: string;
+  protected redisPrefix: string;
   public id: SessionId;
-  private redis: Redis;
-  private fastifyReply: FastifyReply;
-  private cookieConfig: CookieConfig;
+  protected redis: Redis;
+  protected fastifyReply: FastifyReply;
+  protected cookieConfig: CookieConfig;
 
   public data: T;
 

@@ -46,7 +46,7 @@ interface Config {
     secret: string
   },
   tracing: boolean
-  oauth: Record<'google' | 'github', OAuthProviderConfig>,
+  oauth: Record<'google' | 'github' | 'discord', OAuthProviderConfig>,
   session: {
     cookie: CookieConfig
   },

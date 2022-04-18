@@ -4,8 +4,10 @@
     "main": "apps/main",
     "main-backend": "apps/main-backend",
     "main-e2e": "apps/main-e2e",
+    "oauth-manager": "libs/oauth-manager",
     "session-handler": "libs/session-handler",
     "shared-utils": "libs/shared-utils",
+    "test-client": "libs/test-client",
     "ui": "libs/ui"
   }
 }

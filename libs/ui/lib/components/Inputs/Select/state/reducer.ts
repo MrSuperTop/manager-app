@@ -9,7 +9,7 @@ export const SelectReducer = <T>(
       return {
         ...state,
         selected: action.payload
-      }
+      };
     default:
       return state;
   }

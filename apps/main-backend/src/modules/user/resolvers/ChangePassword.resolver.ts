@@ -1,5 +1,4 @@
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
-import { redis } from '../../../utils/setupRedis';
 import { ChangePasswordInput } from '../inputs/ChangePassword.input';
 import { User } from '../../../entities/User';
 import { tokenExpiredError, userDoesNotExistsError } from '../../../constants/errors';
@@ -13,7 +12,7 @@ export class ChangePasswordResolver {
   @Mutation(() => User)
   async changePassword (
     @Arg('input') { token, newPassword }: ChangePasswordInput,
-    @Ctx() { prisma }: Context
+    @Ctx() { prisma, redis }: Context
   ) {
     const { key } = getRedisKey('forgotPassword', token);
     const rawUserId = await redis.get(key);

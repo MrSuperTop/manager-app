@@ -1,7 +1,6 @@
 import { Ctx, Mutation, Resolver, UseMiddleware } from 'type-graphql';
 import { ContextWithSession } from '../../../types/Context';
 import { isAuth } from '../../../middleware/isAuth';
-import { redis } from '../../../utils/setupRedis';
 import { getRedisKey } from '../../../utils/getRedisKey';
 
 @Resolver()
@@ -9,7 +8,7 @@ export class ClearDataResolver {
   @UseMiddleware(isAuth())
   @Mutation(() => Boolean)
   async clearData (
-    @Ctx() { session, prisma }: ContextWithSession
+    @Ctx() { session, prisma, redis }: ContextWithSession
   ) {
     const user = await prisma.user.delete({
       where: {

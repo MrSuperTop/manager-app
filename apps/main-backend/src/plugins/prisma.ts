@@ -8,13 +8,14 @@ declare module 'fastify' {
   }
 }
 
-const prismaPlugin: FastifyPluginAsync = fp(async (app) => {
-  const prisma = new PrismaClient({
-    log: [
-      { emit: 'event', level: 'error' }
-    ]
-  });
+export const prisma = new PrismaClient({
+  log: [
+    { emit: 'event', level: 'error' }
+  ]
+});
 
+
+const prismaPlugin: FastifyPluginAsync = fp(async (app) => {
   prisma.$on('error', (e) => {
     app.log.error(e);
   });
