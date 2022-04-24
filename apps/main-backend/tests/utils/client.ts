@@ -4,12 +4,12 @@ import fastifyCookie from 'fastify-cookie';
 import fastifyCors from 'fastify-cors';
 import mercurius, { MercuriusOptions } from 'mercurius';
 import config from '../../src/config';
-import redisPlugin from '../../src/plugins/redis';
 import { Context } from '../../src/types/Context';
 import prisma from './prisma';
 import { TestClient } from '@nx-manager-app/test-client';
 import { join } from 'path';
 import { buildSchema } from 'type-graphql';
+import redis from '../../src/plugins/redis';
 
 export const createTestClient = () => {
   const app = fastify();
@@ -28,7 +28,7 @@ export const createTestClient = () => {
       ]
     });
 
-    await app.register(redisPlugin);
+    await app.register(redis);
 
     app.decorate('prisma', prisma);
 

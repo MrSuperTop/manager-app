@@ -8,8 +8,6 @@ import { OAuth2Client } from 'google-auth-library';
 
 let oauth2Client: OAuth2Client;
 
-
-
 if (isProd) {
   const {
     client_id: clientId,

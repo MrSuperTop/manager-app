@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 import { createTestClient } from './utils/client';
 
-const client = createTestClient();;
+const client = createTestClient();
 
-test('Server is up', async () => {
+it('Server is up', async () => {
   const response = await client.query(gql`
     query HealthCheck {
       healthCheck

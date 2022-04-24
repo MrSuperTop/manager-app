@@ -20,6 +20,4 @@ const log = logger({
   ...extensions
 });
 
-log.info('Logger Created');
-
 export default log;

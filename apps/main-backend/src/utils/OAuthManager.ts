@@ -2,6 +2,7 @@ import { AdditionalRegisterData, FastifyObjects, OAuthManager as BaseOAuthManage
 import { PrismaClient, Session, User } from '@prisma/client';
 import Redis from 'ioredis';
 import { invalidCredentialsError } from '../constants/errors';
+import { OAuthProvider } from '../modules/user/object-types/OAuthProvider';
 import { createSession } from '../modules/user/services/session.service';
 import { createUser } from '../modules/user/services/user.service';
 import { UserSession } from './UserSession';
@@ -15,7 +16,7 @@ type FullUser = User & {
   sessions: Session[]
 };
 
-export class OAuthManager extends BaseOAuthManager<UserSession, FullUser> {
+export class OAuthManager extends BaseOAuthManager<UserSession, FullUser, OAuthProvider> {
   prisma: PrismaClient;
   redis: Redis;
 
@@ -30,7 +31,7 @@ export class OAuthManager extends BaseOAuthManager<UserSession, FullUser> {
   }
 
   async register (
-    methodName: string,
+    methodName: OAuthProvider,
     code: string,
     data: AdditionalRegisterData,
     {
@@ -73,7 +74,7 @@ export class OAuthManager extends BaseOAuthManager<UserSession, FullUser> {
   }
 
   async login (
-    methodName: string,
+    methodName: OAuthProvider,
     code: string,
     {
       req,

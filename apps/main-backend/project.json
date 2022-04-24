@@ -84,7 +84,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "dotenv -e .env.test -- yarn jest --forceExit",
+            "command": "dotenv -e .env.test -- yarn jest --verbose --forceExit",
             "forwardAllArgs": true
           }
         ]

@@ -7,5 +7,9 @@ export const getCodeParam = async (
     new URLSearchParams(window.location.search).get('code')
   ));
 
+  if (!code) {
+    throw new Error('Wasn\'t able to retrieve "code" param from query string');
+  }
+
   return code;
 };

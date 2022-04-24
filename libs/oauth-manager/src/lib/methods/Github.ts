@@ -34,7 +34,7 @@ class GithubClient<T extends UserEmails> extends Client<T> {
   }
 }
 
-export class GithubMethod extends Method<UserEmails> {
+export class GithubMethod extends Method<'github'> {
   public name = 'github' as const;
   public clientId: string;
   public clientSecret: string;

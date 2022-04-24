@@ -1,3 +1,9 @@
+const fs = require('fs');
+
+const { exclude: _, ...swcJestConfig } = JSON.parse(
+  fs.readFileSync(`${__dirname}/.swcrc`, 'utf-8')
+);
+
 module.exports = {
   displayName: 'main-backend',
   preset: '../../jest.preset.js',
@@ -8,8 +14,9 @@ module.exports = {
   },
   testEnvironment: 'node',
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/apps/main-backend',
+  globalTeardown: './tests/teardown.ts'
 };

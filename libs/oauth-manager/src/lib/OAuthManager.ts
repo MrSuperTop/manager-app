@@ -12,10 +12,10 @@ export interface AdditionalRegisterData {
   username: string
 }
 
-export abstract class OAuthManager<S extends Session<object>, U> {
-  protected methods: Record<string, Method> = {};
+export abstract class OAuthManager<S extends Session<object>, U, K extends string> {
+  protected methods: Record<string, Method<K>> = {};
 
-  use (method: Method) {
+  use (method: Method<K>) {
     this.methods[method.name] = method;
   }
 
@@ -29,7 +29,7 @@ export abstract class OAuthManager<S extends Session<object>, U> {
     return urls;
   }
 
-  getMethod (name: string) {
+  getMethod (name: K) {
     const method = this.methods[name];
 
     if (!method) {
@@ -40,7 +40,7 @@ export abstract class OAuthManager<S extends Session<object>, U> {
   }
 
   abstract register (
-    methodName: string,
+    methodName: K,
     code: string,
     data: AdditionalRegisterData,
     objects: FastifyObjects
@@ -50,7 +50,7 @@ export abstract class OAuthManager<S extends Session<object>, U> {
   }>;
 
   abstract login (
-    methodName: string,
+    methodName: K,
     code: string,
     objects: FastifyObjects
   ): Promise<{

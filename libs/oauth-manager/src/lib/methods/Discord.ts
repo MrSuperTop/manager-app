@@ -59,7 +59,7 @@ class DiscordClient extends Client<UserEmails> {
   }
 }
 
-export class DiscordMethod extends Method<UserEmails> {
+export class DiscordMethod extends Method<'discord'> {
   public name = 'discord' as const;
   public clientId: string;
   public clientSecret: string;

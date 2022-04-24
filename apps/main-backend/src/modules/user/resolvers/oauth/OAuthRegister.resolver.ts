@@ -5,12 +5,13 @@ import config from '../../../../config';
 import { alreadyLoggedInError } from '../../../../constants/errors';
 import { manager } from './shared/auth';
 import { OAuthRegisterInput } from '../../inputs/OAuthRegister.input';
+import { OAuthProvider } from '../../object-types/OAuthProvider';
 
 @Resolver(User)
 export class OAuthRegisterResolver {
   @Mutation(() => User)
   async oauthRegister (
-    @Arg('provider') provider: string,
+    @Arg('provider') provider: OAuthProvider,
     @Arg('code') code: string,
     @Arg('input') input: OAuthRegisterInput,
     @Ctx() { req, reply }: Context

@@ -20,7 +20,7 @@ export class ClearDataResolver {
     });
 
     const keys = user.sessions.map((session) => {
-      return getRedisKey('sessionData', session.userId.toString()).key;
+      return getRedisKey('sessionData', session.id.toString()).key;
     });
 
     await redis.del(keys);

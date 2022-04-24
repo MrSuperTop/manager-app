@@ -40,7 +40,7 @@ class GoogleClient extends Client<UserEmails> {
   }
 }
 
-export class GoogleMethod extends Method<UserEmails> {
+export class GoogleMethod extends Method<'google'> {
   public name = 'google' as const;
   private googleClient: OAuth2Client;
 
