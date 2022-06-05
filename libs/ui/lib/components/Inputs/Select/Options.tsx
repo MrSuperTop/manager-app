@@ -10,7 +10,7 @@ export interface OptionsProps<T extends ItemsData> {
 const Options = <T extends ItemsData>({
   data,
   children
-}: React.PropsWithChildren<OptionsProps<T>>) => {
+}: OptionsProps<T>) => {
   return (
     <Listbox.Options
       static

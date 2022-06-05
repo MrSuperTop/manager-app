@@ -1,12 +1,13 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { capitalize } from 'lodash-es';
-import React, { ReactNode, RefObject, useEffect, useRef } from 'react';
+import React, { MouseEventHandler, ReactNode, RefObject, useEffect, useRef } from 'react';
 
 export interface InnerProps {
   className?: string,
   noPointerEvents?: boolean,
   width?: number,
   parentRef?: RefObject<HTMLElement>,
+  onClick?: MouseEventHandler<HTMLDivElement>,
   children: ReactNode
 };
 
@@ -16,12 +17,15 @@ const withInner = (
   side: typeof innerSides[number],
   customStyles?: string
 ): React.FC<InnerProps> => {
-  const InnerComponent: React.FC<InnerProps> = ({
-    noPointerEvents = false,
-    className,
-    parentRef,
-    children
-  }) => {
+  const InnerComponent = (
+    {
+      noPointerEvents = false,
+      className,
+      parentRef,
+      onClick,
+      children
+    }: InnerProps
+  ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -39,7 +43,8 @@ const withInner = (
     return (
       <div
         ref={containerRef}
-        className={classNames(
+        onClick={onClick}
+        className={classnames(
           customStyles,
           'flex absolute items-center text-gray-500',
           { 'pl-3 left-0': side === 'left' },

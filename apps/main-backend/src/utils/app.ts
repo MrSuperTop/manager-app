@@ -1,7 +1,7 @@
 import 'reflect-metadata';
-import fastifyCookie from 'fastify-cookie';
+import fastifyCookie from '@fastify/cookie';
 import fastify from 'fastify';
-import fastifyCors from 'fastify-cors';
+import fastifyCors from '@fastify/cors';
 import prismaPlugin from '../plugins/prisma';
 import mercuriusPlugin from '../plugins/mercurius';
 import redisPlugin from '../plugins/redis';

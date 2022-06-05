@@ -6,7 +6,7 @@ export const getGithubCode = async (
   authUrl: string
 ) => {
   const browser = await chromium.launch({
-    headless: true
+    headless: false
   });
 
   const context = await loadContext('github', browser);

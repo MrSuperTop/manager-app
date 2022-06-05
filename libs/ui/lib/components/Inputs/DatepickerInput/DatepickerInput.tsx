@@ -1,7 +1,7 @@
 import { Popover } from '@headlessui/react';
 import { useField } from 'formik';
 import Datepicker from '../Datepicker/Datepicker';
-import Float from '../shared/Float';
+import Float from '../../Float/Float';
 import ToggleChevron from '../shared/ToggleChevron';
 import TextField from '../TextField/TextField';
 
@@ -9,9 +9,11 @@ export interface DatepickerInputProps {
   name: string
 };
 
-const DatepickerInput: React.VFC<DatepickerInputProps> = ({
-  name
-}) => {
+const DatepickerInput = (
+  {
+    name
+  }: DatepickerInputProps
+) => {
   const [{ value: selected }] = useField(name);
 
   return (

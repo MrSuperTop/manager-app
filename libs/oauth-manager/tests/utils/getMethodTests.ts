@@ -10,7 +10,7 @@ const emailsSchema = z.array(z.object({
 }));
 
 export const getMethodFunctions = (
-  method: Method<UserEmails>,
+  method: Method<'discord' | 'google' | 'github', UserEmails>,
   code: string
 ) => {
   let client: Client<UserEmails>;

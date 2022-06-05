@@ -1,5 +1,5 @@
 import { Switch } from '@headlessui/react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { useField } from 'formik';
 import Label from '../shared/Label';
 
@@ -8,10 +8,12 @@ export interface ToggleProps {
   label?: string
 };
 
-const Toggle: React.VFC<ToggleProps> = ({
-  name,
-  label
-}) => {
+const Toggle = (
+  {
+    name,
+    label
+  }: ToggleProps
+) => {
   const [{
     value: enabled
   },, { setValue, setTouched }] = useField(name);
@@ -28,13 +30,13 @@ const Toggle: React.VFC<ToggleProps> = ({
       <Switch
         checked={enabled}
         onChange={selectHandler}
-        className={classNames(
+        className={classnames(
           'relative inline-flex items-center h-6 rounded-full w-11',
           enabled ? 'bg-primary' : 'bg-gray-200'
         )}
       >
         <span
-          className={classNames(
+          className={classnames(
             'inline-block w-4 h-4 transform bg-white rounded-full transition',
             enabled ? 'translate-x-6' : 'translate-x-1'
           )}

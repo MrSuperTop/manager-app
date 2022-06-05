@@ -1,0 +1,12 @@
+mutation Register($options: RegisterInput!) {
+  register(
+    input: $options
+  ) {
+    id
+    email
+    username
+    emailConfirmed
+    createdAt
+    updatedAt
+  }
+}

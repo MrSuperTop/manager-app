@@ -1,9 +1,9 @@
 import { EyeIcon, LockClosedIcon } from '@heroicons/react/solid';
+import { zodAdapter } from '@nx-manager-app/shared-utils';
 import { Meta, Story } from '@storybook/react';
 import { Form, Formik } from 'formik';
 import { omit } from 'lodash-es';
 import { z } from 'zod';
-import { zodAdapter } from '../../../utils/zodAdapter';
 import InputGroup from '../InputGroup/InputGroup';
 import TextField, { TextFieldProps } from './TextField';
 
@@ -62,7 +62,7 @@ Single.args = {
 
 const WithAddonTemplate: Story<TextFieldProps> = (args) => {
   return (
-    <Formik // TODO: Default Wrapper for storybook with Formik
+    <Formik
       initialValues={{
         text: ''
       }}

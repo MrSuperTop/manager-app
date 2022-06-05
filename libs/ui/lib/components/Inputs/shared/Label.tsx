@@ -1,15 +1,19 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 export interface LabelProps extends ComponentPropsWithoutRef<'label'> {
-  htmlFor?: string
+  htmlFor?: string,
+  required?: boolean
 };
 
-const Label: React.FC<LabelProps> = ({
-  htmlFor,
-  className,
-  children,
-  ...props
-}) => {
+const Label = (
+  {
+    required = false,
+    htmlFor,
+    className,
+    children,
+    ...props
+  }: LabelProps
+) => {
   if (!children) return null;
 
   return (
@@ -19,6 +23,13 @@ const Label: React.FC<LabelProps> = ({
       {...props}
     >
       {children}
+      {required && (
+        <span
+          className='text-red-600 text-xs'
+        >
+          &nbsp;*
+        </span>
+      )}
     </label>
   );
 };

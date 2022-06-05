@@ -4,7 +4,7 @@ import { WithPassword } from './shared/WithPassword';
 
 @InputType()
 export class RegisterInput extends WithPassword {
-  @Length(1, 255)
+  @Length(4, 255)
   @Field()
     username!: string;
 

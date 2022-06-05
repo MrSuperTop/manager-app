@@ -1,15 +1,17 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 export interface LoaderProps {
   className?: string
 };
 
-const Loader: React.VFC<LoaderProps> = ({
-  className
-}) => {
+const Loader = (
+  {
+    className
+  }: LoaderProps
+) => {
   return (
     <svg
-      className={classNames(
+      className={classnames(
         'animate-[spin_0.5s_linear_infinite] ease-in h-5 w-5',
         className
       )}

@@ -1,4 +1,4 @@
-import { getRedisKey } from 'apps/main-backend/src/utils/getRedisKey';
+import { getRedisKey } from '../../../src/utils/getRedisKey';
 import gql from 'graphql-tag';
 import { ConfirmationData } from '../../schemas/ConfirmationData';
 import { createTestClient } from '../../utils/client';

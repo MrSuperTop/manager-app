@@ -24,11 +24,18 @@ export const userDoesNotExistsError = new ErrorWithProps('This user doesn\'t exi
 
 export const invalidCredentialsError = new ErrorWithProps('Invalid login cretentials', {
   code: 'INVALID_CRETENDIALS',
+  fields: ['usernameOrEmail', 'password'],
   timestamp: new Date().toISOString()
 });
 
 export const invalidCodeError = new ErrorWithProps('Invalid oauth code provided', {
   code: 'INVALID_OAUTH_CODE',
+  timestamp: new Date().toISOString()
+});
+
+export const alreadyTakenError = new ErrorWithProps('This username or email is taken', {
+  code: 'INVALID_DATA',
+  fields: ['username', 'email'],
   timestamp: new Date().toISOString()
 });
 

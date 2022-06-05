@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import fastify from 'fastify';
-import fastifyCors from 'fastify-cors';
+import fastifyCors from '@fastify/cors';
 import log from './logger';
 import config from './config';
-import fastifyCookie from 'fastify-cookie';
+import fastifyCookie from '@fastify/cookie';
 
 import prismaPlugin from './plugins/prisma';
 import mercuriusPlugin from './plugins/mercurius';

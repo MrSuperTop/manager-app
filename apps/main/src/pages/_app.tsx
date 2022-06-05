@@ -1,16 +1,17 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Toaster } from 'react-hot-toast';
 import '../styles/globals.scss';
-
 
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to main!</title>
+        <title>Manager app</title>
       </Head>
-      <main className="app">
+      <Toaster />
+      <main className="app h-screen">
         <Component {...pageProps} />
       </main>
     </>

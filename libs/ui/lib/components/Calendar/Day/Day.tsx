@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import dayjs, { Dayjs } from 'dayjs';
 import { MouseEventHandler } from 'react';
 
@@ -16,12 +16,14 @@ const compareDays = (firstDay: Dayjs, secondDay: Dayjs) => {
   return firstDay.format(formatForCheck) === secondDay.format(formatForCheck);
 };
 
-const Day: React.VFC<DayProps> = ({
-  date,
-  onSelect,
-  currentMonth,
-  selected
-}) => {
+const Day = (
+  {
+    date,
+    onSelect,
+    currentMonth,
+    selected
+  }: DayProps
+) => {
   const clickHandler: MouseEventHandler<HTMLDivElement> = () => {
     onSelect(date);
   };
@@ -34,7 +36,7 @@ const Day: React.VFC<DayProps> = ({
     <div
       onClick={clickHandler}
       key={date.unix()}
-      className={classNames(
+      className={classnames(
         'w-10 h-10 transition duration-75 hover:bg-primary hover:text-white rounded-md flex items-center justify-center cursor-pointer',
         { 'text-gray-500': isOutside },
         { 'hover:bg-secondary bg-secondary text-white duration-200': isSelected },

@@ -1,15 +1,19 @@
+import { ReactNode } from 'react';
 import { animated, config, useTransition } from 'react-spring';
 
 interface FloatProps {
   open: boolean,
-  className?: string
+  className?: string,
+  children: ReactNode
 }
 
-const Float: React.FC<FloatProps> = ({
-  open,
-  className,
-  children
-}) => {
+const Float = (
+  {
+    open,
+    className,
+    children
+  }: FloatProps
+) => {
   const position = {
     x: 0,
     y: 0

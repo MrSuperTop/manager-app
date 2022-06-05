@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import fastify, { FastifyRegisterOptions } from 'fastify';
-import fastifyCookie from 'fastify-cookie';
-import fastifyCors from 'fastify-cors';
+import fastifyCookie from '@fastify/cookie';
+import fastifyCors from '@fastify/cors';
 import mercurius, { MercuriusOptions } from 'mercurius';
 import config from '../../src/config';
 import { Context } from '../../src/types/Context';

@@ -5,9 +5,11 @@ export interface ErrorTextProps {
 };
 
 
-const ErrorText: React.VFC<ErrorTextProps> = ({
-  name
-}) => {
+const ErrorText = (
+  {
+    name
+  }: ErrorTextProps
+) => {
   const { error, touched } = useField(name)[1];
   const errorText = (error && touched) ? error : '';
 
@@ -17,7 +19,7 @@ const ErrorText: React.VFC<ErrorTextProps> = ({
 
   return (
     <div
-      className='ml-1 mt-1 text-base text-red-400'
+      className='ml-1 mt-1 text-sm text-red-400'
     >
       {errorText}
     </div>

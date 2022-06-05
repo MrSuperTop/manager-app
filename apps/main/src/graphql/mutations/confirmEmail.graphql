@@ -1,0 +1,3 @@
+mutation ConfirmEmail($options: ConfirmEmailInput!) {
+  confirmEmail(input: $options)
+}

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { useField } from 'formik';
 import { ComponentPropsWithoutRef, useRef } from 'react';
 import useChildrenWithProps from '../../../hooks/useChildrenWithProps';
@@ -18,14 +18,16 @@ export interface TextAreaProps extends ComponentPropsWithoutRef<'textarea'> {
   resize?: typeof resizeVariants[number]
 };
 
-const TextArea: React.FC<TextAreaProps> = ({
-  name,
-  label,
-  className,
-  children,
-  resize = defaultResize,
-  ...props
-}) => {
+const TextArea = (
+  {
+    name,
+    label,
+    className,
+    children,
+    resize = defaultResize,
+    ...props
+  }: TextAreaProps
+) => {
   const [field] = useField(name);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const childrenWithRef = useChildrenWithProps<InnerProps>(children, {
@@ -46,7 +48,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           {...field}
           {...props}
           ref={textAreaRef}
-          className={classNames(
+          className={classnames(
             className,
             resize,
             defaultTextFieldClasses

@@ -5,7 +5,9 @@ import { loadContext } from './loadContext';
 export const getDiscordCode = async (
   authUrl: string
 ) => {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({
+    headless: true
+  });
 
   const context = await loadContext('discord', browser);
   const page = await context.newPage();

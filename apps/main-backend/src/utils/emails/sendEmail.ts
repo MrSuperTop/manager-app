@@ -55,6 +55,7 @@ export const sendEmail = async (
   const transporter = await createTransporter();
   const email = await transporter.sendMail(emailOptions);
 
+
   if (!isProd) {
     log.info(getTestMessageUrl(email));
   }

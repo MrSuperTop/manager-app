@@ -20,7 +20,7 @@ const sendForgotPasswordEmail = async (
 
 @Resolver()
 export class ForgotPasswordResolver {
-  @Mutation(() => String)
+  @Mutation(() => Boolean)
   async forgotPassword (
     @Arg('email') email: string,
     @Ctx() { prisma, redis }: Context

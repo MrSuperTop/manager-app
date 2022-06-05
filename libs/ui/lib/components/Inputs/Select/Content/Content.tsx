@@ -1,7 +1,7 @@
 import { Listbox } from '@headlessui/react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { PropsWithChildren } from 'react';
-import Float from '../../shared/Float';
+import Float from '../../../Float/Float';
 import ToggleChevron from '../../shared/ToggleChevron';
 import { defaultTextFieldClasses } from '../../TextField/TextField';
 import { displayValue } from '../Select';
@@ -27,7 +27,7 @@ const Content = <T extends ItemsData>({
       className={className}
     >
       <Listbox.Button
-        className={classNames(
+        className={classnames(
           'flex items-center relative gap-2',
           defaultTextFieldClasses
         )}

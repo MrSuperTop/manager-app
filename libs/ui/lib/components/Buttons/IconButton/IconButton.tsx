@@ -1,7 +1,7 @@
-import classNames from 'classnames';
+import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
+import classnames from 'classnames';
 import { MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
-import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
 import Loader from '../../Loader/Loader';
 import { ButtonProps, defaultButtonClasses, styleClasses } from '../Button/Button';
 import { useButtonGroupState } from '../Button/Group/state/ButtonGroupContext';
@@ -29,17 +29,19 @@ export interface IconButtonProps extends NeededButonProps {
   icon: IconType
 }
 
-const IconButton: React.FC<IconButtonProps> = ({
-  variant,
-  colorScheme,
-  size = 'md',
-  type = 'button',
-  disabled,
-  isLoading,
-  icon,
-  onClick,
-  className
-}) => {
+const IconButton = (
+  {
+    variant,
+    colorScheme,
+    size = 'md',
+    type = 'button',
+    disabled,
+    isLoading,
+    icon,
+    onClick,
+    className
+  }: IconButtonProps
+) => {
   const { sharedProps } = useButtonGroupState();
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (
     event
@@ -64,7 +66,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   if (isLoading) {
     content = (
       <Loader
-        className={classNames(
+        className={classnames(
           currentStyleClasses['loader']
         )}
       />
@@ -76,7 +78,7 @@ const IconButton: React.FC<IconButtonProps> = ({
       onClick={clickHandler}
       disabled={isLoading || disabled}
       type={type}
-      className={classNames(
+      className={classnames(
         defaultButtonClasses,
         sizeClasses[size]['button'],
         currentStyleClasses['main'],

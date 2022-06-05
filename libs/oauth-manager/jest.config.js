@@ -9,11 +9,10 @@ const { exclude: _, ...swcJestConfig } = JSON.parse(
 module.exports = {
   displayName: 'oauth-manager',
   preset: '../../jest.preset.js',
-  testEnvironment: 'node',
   transform: {
-    '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig],
+    "^.+\\.(t|j)sx?$": ["@swc/jest", swcJestConfig],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/libs/oauth-manager',
-  setupFilesAfterEnv: ['./jest.setup.js']
+  setupFilesAfterEnv: ['./jest.setup.ts']
 };

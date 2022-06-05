@@ -1,5 +1,5 @@
 import { CookieConfig } from '@nx-manager-app/session-handler';
-import { FastifyCorsOptions } from 'fastify-cors';
+import { FastifyCorsOptions } from '@fastify/cors';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { parse } from 'yaml';

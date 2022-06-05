@@ -10,9 +10,11 @@ export interface DatepickerProps {
   name: string
 };
 
-const Datepicker: React.VFC<DatepickerProps> = ({
-  name
-}) => {
+const Datepicker = (
+  {
+    name
+  }: DatepickerProps
+) => {
   const [currentMonth, setCurrentMonth] = useState<Dayjs>(dayjs());
   const [{ value: selected },, { setValue }] = useField(name);
 

@@ -1,5 +1,5 @@
 import { XIcon } from '@heroicons/react/outline';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { useField } from 'formik';
 import { ComponentPropsWithoutRef, forwardRef, useRef } from 'react';
 import useChildrenWithProps from '../../../hooks/useChildrenWithProps';
@@ -24,6 +24,7 @@ export interface TextFieldProps extends ComponentPropsWithoutRef<'input'> {
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({
   isClearable = false,
+  required,
   name,
   label,
   className,
@@ -51,6 +52,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({
     <div className='w-full group'>
       <Label
         htmlFor={name}
+        required={required}
       >
         {label}
       </Label>
@@ -73,10 +75,11 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({
           {...field}
           {...props}
           id={name}
+          required={required}
           ref={mergeRefs(inputRef, ref)}
           onChange={changeHandler}
           onBlur={blurHandler}
-          className={classNames(
+          className={classnames(
             defaultTextFieldClasses,
             InputGroupStyles,
             inputGroupItemClasses,

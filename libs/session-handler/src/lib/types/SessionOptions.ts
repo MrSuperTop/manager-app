@@ -1,5 +1,5 @@
 import { FastifyReply } from 'fastify';
-import { CookieSerializeOptions } from 'fastify-cookie';
+import { CookieSerializeOptions } from '@fastify/cookie';
 import Redis from 'ioredis';
 import { SessionId } from './SessionId';
 

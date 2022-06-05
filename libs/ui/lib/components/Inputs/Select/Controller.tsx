@@ -6,7 +6,7 @@ export interface ControllerProps<T extends ItemsData> {
 
 const Contoller = <T extends ItemsData>({
   children
-}: React.PropsWithChildren<ControllerProps<T>>) => {
+}: ControllerProps<T>) => {
   return (
     {children}
   );

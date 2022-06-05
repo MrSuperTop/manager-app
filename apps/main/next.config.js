@@ -33,6 +33,61 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    domains: ['avatars.dicebear.com'] 
+  },
+  async redirects() {
+    return [
+      {
+        source: '/register',
+        destination: '/',
+        has: [
+          {
+            type: 'cookie',
+            key: 'sess_id',
+            value: undefined,
+          },
+        ],
+        permanent: false
+      },
+      {
+        source: '/login',
+        destination: '/',
+        has: [
+          {
+            type: 'cookie',
+            key: 'sess_id',
+            value: undefined,
+          },
+        ],
+        permanent: false
+      },
+      {
+        source: '/settings',
+        destination: '/',
+        has: [
+          {
+            type: 'cookie',
+            key: 'sess_id',
+            value: '',
+          },
+        ],
+        permanent: false
+      },
+    ]
+  },
+  // redirects: {
+  //   source: '/login',
+  //   has: [
+  //     {
+  //       type: 'cookie',
+  //       key: 'sess_id',
+  //       value: undefined,
+  //     },
+  //   ],
+  //   destination: '/',
+  //   permanent: true,
+  // },
 };
 
 module.exports = withNx(nextConfig);

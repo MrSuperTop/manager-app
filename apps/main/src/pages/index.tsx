@@ -1,12 +1,37 @@
+import { Loader } from '@nx-manager-app/ui';
+import { withUrqlClient } from 'next-urql';
+import Layout from '../components/layout/Layout/Layout';
+import { useUserData } from '../hooks/useUserData';
+import { getUrqlClientConfig } from '../utils/createUrqlClient';
 
 export function Index() {
+  const { user, isLoggedIn, fetching } = useUserData();
+
+  if (fetching) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
+
   return (
-    <div
-      className='w-full h-screen bg-white flex items-center justify-center text-3xl'
+    <Layout
+      variant='normal'
     >
-      Welcome to main
-    </div>
+      <div
+        className='break-words'
+      >
+        {JSON.stringify({
+          user,
+          isLoggedIn
+        })}
+      </div>
+    </Layout>
   );
 }
 
-export default Index;
+export default withUrqlClient(
+  getUrqlClientConfig,
+  { ssr: true }
+)(Index);

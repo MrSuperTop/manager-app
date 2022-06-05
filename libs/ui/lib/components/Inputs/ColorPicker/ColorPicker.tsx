@@ -1,18 +1,22 @@
 import { Popover } from '@headlessui/react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { useField } from 'formik';
 import { useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
-import Float from '../shared/Float';
+import Float from '../../Float/Float';
 
 export interface ColorPickerProps {
-  name: string
+  name: string,
+  startColor?: string
 };
 
-const ColorPicker: React.VFC<ColorPickerProps> = ({
-  name
-}) => {
-  const [color, setColor] = useState('#aabbcc');
+const ColorPicker = (
+  {
+    name,
+    startColor = '#ffffff'
+  }: ColorPickerProps
+) => {
+  const [color, setColor] = useState(startColor);
   const { setValue } = useField(name)[2];
 
   const updateHandler = (newValue: string) => {
@@ -25,7 +29,7 @@ const ColorPicker: React.VFC<ColorPickerProps> = ({
       {({ open }) => (
         <>
           <Popover.Button
-            className={classNames(
+            className={classnames(
               'h-8 w-8 focus:ring ring-offset-2 rounded-md transition'
             )}
             style={{
@@ -39,10 +43,10 @@ const ColorPicker: React.VFC<ColorPickerProps> = ({
               <Float
                 open={open}
               >
-                  <HexColorPicker
-                    color={color}
-                    onChange={updateHandler}
-                  />
+                <HexColorPicker
+                  color={color}
+                  onChange={updateHandler}
+                />
               </Float>
             </Popover.Panel>
         </>

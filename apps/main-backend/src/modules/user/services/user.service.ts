@@ -1,10 +1,7 @@
 import { Prisma } from '@prisma/client';
 import log from '../../../logger';
-import dayjs from 'dayjs';
-import mercurius from 'mercurius';
 import { prisma } from '../../../plugins/prisma';
-
-const { ErrorWithProps } = mercurius;
+import { alreadyTakenError } from '../../../constants/errors';
 
 export const createUser = async (
   data: Prisma.UserCreateInput
@@ -21,10 +18,7 @@ export const createUser = async (
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       if (e.code === 'P2002') {
-        throw new ErrorWithProps('This username or email is taken', {
-          code: 'INVALID_DATA',
-          timestamp: dayjs().toISOString()
-        });
+        throw alreadyTakenError;
       } else {
         log.error(e);
       }

@@ -4,9 +4,11 @@ import { SharedProps } from './state/types';
 export type GroupProps = Partial<SharedProps>;
 
 
-const Group: React.FC<GroupProps> = ({
-  children
-}) => {
+const Group = (
+  {
+    children
+  }: GroupProps
+) => {
   return (
     <div
       className='components-group flex flex-row'
@@ -16,10 +18,12 @@ const Group: React.FC<GroupProps> = ({
   );
 };
 
-const Wrapper: React.FC<GroupProps> = ({
-  children,
-  ...props
-}) => {
+const Wrapper = (
+  {
+    children,
+    ...props
+  }: GroupProps
+) => {
   return (
     <ButtonGroupContext.Provider
       value={{

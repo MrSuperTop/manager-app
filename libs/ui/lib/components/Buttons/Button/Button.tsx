@@ -1,8 +1,8 @@
-import classNames from 'classnames';
+import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
+import classnames from 'classnames';
 import { omit } from 'lodash-es';
 import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
-import { getObjecKeysAsTuple } from '@nx-manager-app/shared-utils';
 import Loader from '../../Loader/Loader';
 import Group from './Group/Group';
 import { useButtonGroupState } from './Group/state/ButtonGroupContext';
@@ -124,7 +124,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     content = <>
       {loaderPlacement === 'left' && (
         <Loader
-          className={classNames(
+          className={classnames(
             'mr-2',
             currentStyleClasses['loader']
           )}
@@ -133,7 +133,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       {loadingText}
       {loaderPlacement === 'right' && (
         <Loader
-          className={classNames(
+          className={classnames(
             'ml-2',
             currentStyleClasses['loader']
           )}
@@ -154,7 +154,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       ref={ref}
       type={type}
       disabled={isLoading}
-      className={classNames(
+      className={classnames(
         defaultButtonClasses,
         sizeClasses[size],
         currentStyleClasses['main'],

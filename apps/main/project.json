@@ -49,6 +49,34 @@
       "options": {
         "lintFilePatterns": ["apps/main/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "cwd": "apps/main",
+        "commands": [
+          {
+            "command": "yarn graphql-codegen --config codegen.yml --watch"
+          }
+        ]
+      }
+    },
+    "dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": true,
+        "color": true,
+        "commands": [
+          {
+            "command": "yarn nx serve main"
+          },
+          {
+            "command": "yarn nx run main:generate"
+          }
+        ],
+        "dependsOn": []
+      }
     }
   },
   "tags": []

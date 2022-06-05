@@ -1,16 +1,18 @@
 import { ChevronLeftIcon } from '@heroicons/react/outline';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 interface ToggleChevronProps {
   open: boolean
 };
 
-const ToggleChevron: React.VFC<ToggleChevronProps> = ({
-  open
-}) => {
+const ToggleChevron = (
+  {
+    open
+  }: ToggleChevronProps
+) => {
   return (
     <ChevronLeftIcon
-      className={classNames(
+      className={classnames(
         'text-gray-400 transition h-5 w-5',
         { 'transform -rotate-90': open }
       )}

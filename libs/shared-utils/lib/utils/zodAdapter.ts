@@ -1,6 +1,6 @@
 import { FormikValues } from 'formik';
 import { AnyZodObject } from 'zod';
-import { lowerFirst, upperFirst } from 'lodash-es';
+import { lowerFirst, upperFirst } from 'lodash';
 
 export const zodAdapter = (schema: AnyZodObject) => {
   return async (values: FormikValues) => {

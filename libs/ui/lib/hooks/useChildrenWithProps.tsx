@@ -2,13 +2,18 @@ import { Children, cloneElement, isValidElement, ReactNode } from 'react';
 
 const useChildrenWithProps = <T extends object>(
   children: ReactNode,
-  props: Partial<T>
+  props: Partial<T> | Partial<T>[]
 ) => {
   return Children.map<ReactNode, ReactNode>(
     children,
-    (child) => {
+    (child, index) => {
       if (isValidElement(child)) {
-        return cloneElement(child, props);
+        if (Array.isArray(props)) {
+          return cloneElement(child, props[index]);
+        }
+        else {
+          return cloneElement(child, props);
+        }
       }
 
       return child;

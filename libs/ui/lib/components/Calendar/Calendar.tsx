@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { Dayjs } from 'dayjs';
 import { range } from 'lodash-es';
 import { ComponentPropsWithoutRef, useMemo } from 'react';
@@ -19,14 +19,16 @@ const firstSuToFirstMo = (weekdayNumber: number) => {
   }
 };
 
-const Calendar: React.FC<CalendarProps> = ({
-  displayMonth,
-  onSelect,
-  selected,
-  className,
-  children,
-  ...props
-}) => {
+const Calendar = (
+  {
+    displayMonth,
+    onSelect,
+    selected,
+    className,
+    children,
+    ...props
+  }: CalendarProps
+) => {
   const weekDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
   const days: Dayjs[] = useMemo(() => {
@@ -56,7 +58,7 @@ const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <div
-      className={classNames(
+      className={classnames(
         className,
         'w-[20rem]'
       )}
