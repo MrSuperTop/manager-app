@@ -39,10 +39,6 @@ yarn-error.log
 testem.log
 /typings
 
-# Tokens and prod configs
-apps/main-backend/src/config/prod.yaml
-apps/main-backend/src/config/dev.yaml
-
 # System Files
 .DS_Store
 Thumbs.db
