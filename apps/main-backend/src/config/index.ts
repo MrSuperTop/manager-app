@@ -10,8 +10,7 @@ interface GmailTransporterConfig {
   port: number,
   auth: {
     type: 'oauth2',
-    user: string,
-    refreshToken: string
+    user: string
   }
 };
 
@@ -51,8 +50,12 @@ interface Config {
     cookie: CookieConfig
   },
   redis: {
-    port: number,
-    host: string,
+    instance: {
+      username: string
+      password: string
+      port: number
+      host: string
+    },
     namespaces: Record<namespaces, RedisNamespaceConfig>
   },
   emails: {

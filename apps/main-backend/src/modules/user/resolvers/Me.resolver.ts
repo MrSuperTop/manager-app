@@ -6,7 +6,7 @@ import { isAuth } from '../../../middleware/isAuth';
 @Resolver()
 export class MeResolver {
   @UseMiddleware(isAuth())
-  @Query(() => User)
+  @Query(() => User, { nullable: true })
   async me (
     @Ctx() { session: { data }, prisma }: ContextWithSession
   ) {

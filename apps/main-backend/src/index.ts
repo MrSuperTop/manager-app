@@ -9,21 +9,12 @@ import prismaPlugin from './plugins/prisma';
 import mercuriusPlugin from './plugins/mercurius';
 import redisPlugin from './plugins/redis';
 
-// * Tracing deps
-import openTelemetryPlugin from '@autotelic/fastify-opentelemetry';
-import { useTracing } from './constants/useTracing';
-import './utils/openTelemetry';
+const PORT = process.env.PORT || config.port;
 
 const main = async () => {
   const app = fastify({
     logger: log
   });
-
-  if (useTracing) {
-    await app.register(openTelemetryPlugin, {
-      wrapRoutes: true
-    });
-  }
 
   await app.register(fastifyCors, config.corsConfig);
   await app.register(fastifyCookie, {
@@ -34,7 +25,7 @@ const main = async () => {
   await app.register(redisPlugin);
   await app.register(mercuriusPlugin);
 
-  app.listen(config.port, config.host, (error) => {
+  app.listen(PORT, config.host, (error) => {
     if (error !== null) {
       log.error(error);
     }

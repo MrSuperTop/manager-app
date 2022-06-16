@@ -7,6 +7,7 @@ import { logoutUpdate } from './updates/logout';
 import { loginUpdate } from './updates/login';
 import { registerUpdate } from './updates/register';
 import { confirmEmailUpdate } from './updates/confirmEmail';
+import { isProd } from '../constants/isProd';
 
 export const getUrqlClientConfig: NextUrqlClientConfig = (
   ssrExchange,
@@ -17,8 +18,10 @@ export const getUrqlClientConfig: NextUrqlClientConfig = (
     cookie = ctx?.req?.headers.cookie;
   }
 
+  const url = isProd ? 'https://manager-node-app.herokuapp.com/graphql' : 'http://localhost:4000/graphql';
+
   const config: ClientOptions = {
-    url: 'http://localhost:4000/graphql',
+    url,
     fetchOptions: {
       credentials: 'include',
       headers: cookie ? {

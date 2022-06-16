@@ -1,0 +1,237 @@
+{
+  "cookies": [
+    {
+      "sameSite": "Lax",
+      "name": "__dcfduid",
+      "value": "ba4823a0bc9d11ec8610d1a6a5c426a9",
+      "domain": "discord.com",
+      "path": "/",
+      "expires": 1807694616.329513,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "__sdcfduid",
+      "value": "ba4823a1bc9d11ec8610d1a6a5c426a985454b82cddee807ecab4ca43abc219aa9c15a1ba4f6b44de40f98b8b12f6dd7",
+      "domain": "discord.com",
+      "path": "/",
+      "expires": 1807694616.329716,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "None",
+      "name": "__cf_bm",
+      "value": "Qz4.qYJRwvR2x.MSv0y8SOYBft_JRlHWsCSKb7A1lCs-1650014641-0-Ac4JP3iJMXAxmilaUlgcPUPrt+opuj9rpwQMAgF4Pr/2GSrv5yzDBdJDEVGJCK8pnc7LLGFpjDolfMXzwozqtkJF7kJeKyMIn+6ziyRueVtoczHLn5WVlU5+krnlWuPwRdlQKb6bXQpQ2cxbxdA8HAY=",
+      "domain": ".discord.com",
+      "path": "/",
+      "expires": 1650016441.359229,
+      "httpOnly": true,
+      "secure": true
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://discord.com",
+      "localStorage": [
+        {
+          "name": "LayoutStore",
+          "value": "{\"_state\":{\"layouts\":{},\"widgets\":{}},\"_version\":3}"
+        },
+        {
+          "name": "email_cache",
+          "value": "\"evgeniy.konyshev2007@gmail.com\""
+        },
+        {
+          "name": "UserAffinitiesStore",
+          "value": "{\"_state\":{\"userAffinties\":[{\"user_id\":\"518418083098918922\",\"affinity\":125.81194352049937},{\"user_id\":\"689852905246949448\",\"affinity\":67.1853916527422},{\"user_id\":\"674943468056870942\",\"affinity\":63.38919186960737},{\"user_id\":\"624653642258972695\",\"affinity\":31.084877814960265},{\"user_id\":\"693801553345118228\",\"affinity\":29.1746945580253},{\"user_id\":\"434785572779851787\",\"affinity\":19.376317294989985},{\"user_id\":\"527086271601049600\",\"affinity\":12.78075753567884},{\"user_id\":\"555652644195139584\",\"affinity\":11.29472937414525},{\"user_id\":\"376721868662767617\",\"affinity\":9.139456856220587},{\"user_id\":\"511981986894708747\",\"affinity\":8.841231961738218},{\"user_id\":\"761267397335318568\",\"affinity\":4.399874380179017},{\"user_id\":\"633639764473675787\",\"affinity\":2.055981202949992},{\"user_id\":\"804406940486467615\",\"affinity\":1.6472169904329186},{\"user_id\":\"510850437893586965\",\"affinity\":1.213494541617634},{\"user_id\":\"675751227883126784\",\"affinity\":0.3880656663535863},{\"user_id\":\"267569613074595841\",\"affinity\":0},{\"user_id\":\"416574241308147713\",\"affinity\":0},{\"user_id\":\"235878464907902977\",\"affinity\":0},{\"user_id\":\"535331981903527936\",\"affinity\":0},{\"user_id\":\"428257217675001868\",\"affinity\":0},{\"user_id\":\"517649246221107201\",\"affinity\":0},{\"user_id\":\"712749780303872112\",\"affinity\":0},{\"user_id\":\"544393969342349346\",\"affinity\":0},{\"user_id\":\"678216930305245185\",\"affinity\":0},{\"user_id\":\"474966157309378604\",\"affinity\":0},{\"user_id\":\"489843671194140682\",\"affinity\":0},{\"user_id\":\"819973176233820210\",\"affinity\":0},{\"user_id\":\"453789402880016395\",\"affinity\":0},{\"user_id\":\"449605906557042688\",\"affinity\":0},{\"user_id\":\"297388222357438464\",\"affinity\":0},{\"user_id\":\"575016782306344979\",\"affinity\":0},{\"user_id\":\"253560467060948992\",\"affinity\":0},{\"user_id\":\"696308707977461840\",\"affinity\":0},{\"user_id\":\"481717598292279306\",\"affinity\":0},{\"user_id\":\"531759939757146112\",\"affinity\":0},{\"user_id\":\"433245623949590528\",\"affinity\":0}],\"inverseUserAffinties\":[],\"lastFetched\":1650014629329},\"_version\":0}"
+        },
+        {
+          "name": "GuildAffinitiesStore",
+          "value": "{\"_state\":{\"guildAffinitiesByGuildId\":{\"657197566399610910\":{\"score\":3367.7228997249695,\"guildId\":\"657197566399610910\",\"index\":0},\"446854611937263616\":{\"score\":3.588027094305569,\"guildId\":\"446854611937263616\",\"index\":1},\"831646372519346186\":{\"score\":3.228117914429573,\"guildId\":\"831646372519346186\",\"index\":2},\"574921006817476608\":{\"score\":0.7708068870471918,\"guildId\":\"574921006817476608\",\"index\":3},\"314078526104141834\":{\"score\":0.5579119379122497,\"guildId\":\"314078526104141834\",\"index\":4},\"336642139381301249\":{\"score\":0.45939117274414343,\"guildId\":\"336642139381301249\",\"index\":5},\"759824132782686259\":{\"score\":0.4401988717170857,\"guildId\":\"759824132782686259\",\"index\":6},\"391020510269669376\":{\"score\":0.410497937141571,\"guildId\":\"391020510269669376\",\"index\":7},\"793091965654663179\":{\"score\":0.3969560772626063,\"guildId\":\"793091965654663179\",\"index\":8}},\"guildAffinities\":[{\"score\":3367.7228997249695,\"guildId\":\"657197566399610910\",\"index\":0},{\"score\":3.588027094305569,\"guildId\":\"446854611937263616\",\"index\":1},{\"score\":3.228117914429573,\"guildId\":\"831646372519346186\",\"index\":2},{\"score\":0.7708068870471918,\"guildId\":\"574921006817476608\",\"index\":3},{\"score\":0.5579119379122497,\"guildId\":\"314078526104141834\",\"index\":4},{\"score\":0.45939117274414343,\"guildId\":\"336642139381301249\",\"index\":5},{\"score\":0.4401988717170857,\"guildId\":\"759824132782686259\",\"index\":6},{\"score\":0.410497937141571,\"guildId\":\"391020510269669376\",\"index\":7},{\"score\":0.3969560772626063,\"guildId\":\"793091965654663179\",\"index\":8}],\"lastFetched\":1650014629357},\"_version\":0}"
+        },
+        {
+          "name": "EmbeddedActivities",
+          "value": "{\"_state\":{\"seenFeaturedActivities\":[],\"shouldShowNewActivityIndicator\":false},\"_version\":1}"
+        },
+        {
+          "name": "MultiAccountStore",
+          "value": "{\"_state\":{\"users\":[{\"id\":\"341867464357052420\",\"avatar\":\"2fab542a6a980e6c31040b24ad4f8f99\",\"username\":\"_mr_super_\",\"discriminator\":\"1197\",\"tokenStatus\":2}],\"isMultiAccountPreviouslyEnabled\":false},\"_version\":0}"
+        },
+        {
+          "name": "SoundpackStore",
+          "value": "{\"_state\":{\"soundpack\":\"classic\"},\"_version\":0}"
+        },
+        {
+          "name": "SelectivelySyncedUserSettingsStore",
+          "value": "{\"_state\":{},\"_version\":1}"
+        },
+        {
+          "name": "SelectedGuildStore",
+          "value": "{\"_state\":{\"selectedGuildTimestampMillis\":{}},\"_version\":0}"
+        },
+        {
+          "name": "lastChangeLog",
+          "value": "3485510344"
+        },
+        {
+          "name": "DefaultRouteStore",
+          "value": "{\"_state\":{\"lastViewedPath\":null},\"_version\":1}"
+        },
+        {
+          "name": "hotspots",
+          "value": "{\"_state\":{\"hiddenHotspots\":[],\"hotspotOverrides\":{}},\"_version\":1}"
+        },
+        {
+          "name": "dismissible_content_last_shown_content",
+          "value": "16"
+        },
+        {
+          "name": "UserTrialStore",
+          "value": "{\"_state\":{\"userTrialOffersLastFetchedAtDate\":1650014627738,\"userTrialOffers\":{}},\"_version\":0}"
+        },
+        {
+          "name": "UserSettingsStore",
+          "value": "{\"locale\":\"en-US\",\"status\":\"online\",\"theme\":\"dark\",\"restrictedGuilds\":[],\"defaultGuildsRestricted\":false,\"friendSourceFlags\":{\"all\":true},\"friendDiscoveryFlags\":0,\"guildPositions\":[\"831646372519346186\",\"657197566399610910\",\"817768122072825876\",\"793091965654663179\",\"703221728918372443\",\"446854611937263616\",\"289587909051416579\",\"574921006817476608\",\"81384788765712384\",\"336642139381301249\",\"797795275790876713\",\"759824132782686259\",\"831623366208126976\",\"720730062156202006\",\"658670734222163989\",\"391020510269669376\",\"251072485095636994\",\"540267901178085405\",\"194170124859736065\",\"314078526104141834\",\"687334630915178515\",\"687978114357395643\",\"451979214581661708\",\"553172430840004609\",\"472942171800993813\",\"393088095840370689\"],\"guildFolders\":[{\"guildIds\":[\"831646372519346186\"]},{\"guildIds\":[\"657197566399610910\"]},{\"guildIds\":[\"817768122072825876\"]},{\"guildIds\":[\"793091965654663179\"]},{\"guildIds\":[\"703221728918372443\"]},{\"guildIds\":[\"446854611937263616\"]},{\"guildIds\":[\"289587909051416579\",\"574921006817476608\",\"81384788765712384\",\"336642139381301249\",\"797795275790876713\"],\"folderId\":3315385563},{\"guildIds\":[\"759824132782686259\",\"831623366208126976\"],\"folderId\":2679222168},{\"guildIds\":[\"720730062156202006\"]},{\"guildIds\":[\"658670734222163989\",\"391020510269669376\",\"251072485095636994\",\"540267901178085405\",\"194170124859736065\",\"314078526104141834\"],\"folderId\":1282228532},{\"guildIds\":[\"687334630915178515\",\"687978114357395643\"],\"folderId\":2927092889,\"folderColor\":10038562},{\"guildIds\":[\"451979214581661708\",\"553172430840004609\",\"472942171800993813\",\"393088095840370689\"],\"folderId\":3578093365,\"folderColor\":15158332}],\"timezoneOffset\":-120,\"customStatus\":{\"text\":\"Glory to Ukraine! Смерть ворогам!\"},\"contactSyncUpsellShown\":true}"
+        },
+        {
+          "name": "collapsedChannels",
+          "value": "{\"_state\":{},\"_version\":0}"
+        },
+        {
+          "name": "tokens",
+          "value": "{\"341867464357052420\":\"mfa.pB_JvXTpTR05y854GpEe_6n-paCC1_9AnWJZdGDDLV-YRboglESFKD5r3qFUE2Lcs7pnImtqodCnfdk3CYmE\"}"
+        },
+        {
+          "name": "dismissible_content_last_shown_at",
+          "value": "1650014682682"
+        },
+        {
+          "name": "notifications",
+          "value": "{\"_state\":{\"disabledSounds\":[],\"disableUnreadBadge\":false,\"taskbarFlash\":true,\"ttsType\":\"NEVER\",\"desktopType\":\"NEVER\"},\"_version\":1}"
+        },
+        {
+          "name": "shouldShowChangeLog",
+          "value": "false"
+        },
+        {
+          "name": "deviceProperties",
+          "value": "{\"os\":\"Linux\",\"browser\":\"Chrome\",\"device\":\"\",\"system_locale\":\"en-US\"}"
+        },
+        {
+          "name": "scientist:triggered",
+          "value": "{\"v\":1,\"e\":{\"user|2021-04_impression_logging\":{\"time\":1650014682272,\"hash\":3695065393}}}"
+        },
+        {
+          "name": "collapsedGuilds",
+          "value": "{\"_state\":{\"collapsedGuilds\":{\"336642139381301249\":false,\"472942171800993813\":false,\"553172430840004609\":false,\"574921006817476608\":false,\"602981548647514133\":false,\"611657094579617792\":false,\"657197566399610910\":false,\"687978114357395643\":false,\"726765376918126602\":false,\"761241249050394684\":false,\"768165563092303882\":false,\"786520579380346901\":false,\"793091965654663179\":false},\"userGuildSettings\":{\"null\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":0,\"channel_overrides\":{\"485011993699287070\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"485011993699287070\"},\"756899834157465752\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"756899834157465752\"},\"756606430852677802\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"756606430852677802\"},\"758011741824090232\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"758011741824090232\"},\"518420368407527445\":{\"channel_id\":\"518420368407527445\",\"muted\":false,\"mute_config\":{\"selected_time_window\":null,\"end_time\":\"2020-10-05T18:37:40+00:00\"},\"message_notifications\":3,\"collapsed\":false}},\"notify_highlights\":0,\"version\":13,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":null},\"336642139381301249\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":1,\"channel_overrides\":{\"490287576670928914\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":true,\"channel_id\":\"490287576670928914\"}},\"notify_highlights\":0,\"version\":22,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"336642139381301249\"},\"472942171800993813\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":2,\"channel_overrides\":{\"642641792445054997\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":true,\"channel_id\":\"642641792445054997\"}},\"notify_highlights\":0,\"version\":19,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"472942171800993813\"},\"553172430840004609\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":1,\"channel_overrides\":{\"561873825705361418\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"561873825705361418\"}},\"notify_highlights\":0,\"version\":0,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"553172430840004609\"},\"574921006817476608\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":1,\"channel_overrides\":{\"880981922325606400\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":true,\"channel_id\":\"880981922325606400\"}},\"notify_highlights\":0,\"version\":70,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"574921006817476608\"},\"602981548647514133\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":0,\"channel_overrides\":{\"602981549683638289\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"602981549683638289\"}},\"notify_highlights\":0,\"version\":8,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"602981548647514133\"},\"611657094579617792\":{\"suppress_everyone\":true,\"suppress_roles\":true,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":2,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":0,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"611657094579617792\"},\"657197566399610910\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":0,\"channel_overrides\":{\"657197566399610916\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"657197566399610916\"},\"710752487698595840\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"710752487698595840\"},\"710786294925492226\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"710786294925492226\"},\"710375344485433364\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"710375344485433364\"},\"707144336428761089\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"707144336428761089\"},\"783279897095307264\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"783279897095307264\"},\"789894940158328842\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"789894940158328842\"},\"798871541956870184\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":1,\"collapsed\":false,\"channel_id\":\"798871541956870184\"},\"816031632117071873\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":false,\"channel_id\":\"816031632117071873\"},\"831941502275551242\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":1,\"collapsed\":false,\"channel_id\":\"831941502275551242\"},\"846854792210939925\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"846854792210939925\"},\"904112643068022794\":{\"muted\":false,\"mute_config\":null,\"message_notifications\":3,\"collapsed\":true,\"channel_id\":\"904112643068022794\"}},\"notify_highlights\":0,\"version\":84,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"657197566399610910\"},\"687978114357395643\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":true,\"message_notifications\":0,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":0,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"hide_muted_channels\":false,\"guild_id\":\"687978114357395643\"},\"726765376918126602\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":false,\"message_notifications\":0,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":7,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"726765376918126602\"},\"761241249050394684\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":true,\"message_notifications\":0,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":12,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"hide_muted_channels\":false,\"guild_id\":\"761241249050394684\"},\"768165563092303882\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":true,\"message_notifications\":0,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":59,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"hide_muted_channels\":false,\"guild_id\":\"768165563092303882\"},\"786520579380346901\":{\"suppress_everyone\":false,\"suppress_roles\":false,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":true,\"message_notifications\":0,\"channel_overrides\":{},\"notify_highlights\":0,\"version\":28,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"hide_muted_channels\":false,\"guild_id\":\"786520579380346901\"},\"793091965654663179\":{\"suppress_everyone\":true,\"suppress_roles\":true,\"mute_scheduled_events\":false,\"mobile_push\":true,\"muted\":true,\"message_notifications\":2,\"channel_overrides\":{\"797141238506979339\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":1,\"collapsed\":false,\"channel_id\":\"797141238506979339\"},\"839933673376972821\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"839933673376972821\"},\"839933928286584872\":{\"muted\":true,\"mute_config\":null,\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"839933928286584872\"},\"845596562297978911\":{\"muted\":true,\"mute_config\":{\"selected_time_window\":-1,\"end_time\":null},\"message_notifications\":2,\"collapsed\":false,\"channel_id\":\"845596562297978911\"}},\"notify_highlights\":0,\"version\":58,\"mute_config\":null,\"hide_muted_channels\":false,\"guild_id\":\"793091965654663179\"}}},\"_version\":1}"
+        },
+        {
+          "name": "TestModeStore",
+          "value": "{\"_state\":{\"applicationId\":null,\"originURL\":null},\"_version\":0}"
+        },
+        {
+          "name": "token",
+          "value": "\"mfa.pB_JvXTpTR05y854GpEe_6n-paCC1_9AnWJZdGDDLV-YRboglESFKD5r3qFUE2Lcs7pnImtqodCnfdk3CYmE\""
+        },
+        {
+          "name": "GuildProgressStore",
+          "value": "{\"_state\":{},\"_version\":0}"
+        },
+        {
+          "name": "EmojiStoreV2",
+          "value": "{\"_state\":{\"pendingUsages\":[]},\"_version\":0}"
+        },
+        {
+          "name": "ApplicationStoreUserSettingsStore",
+          "value": "{\"_state\":{\"hasAcceptedEulaIds\":[]},\"_version\":1}"
+        },
+        {
+          "name": "UserSettingsOverridesStore",
+          "value": "{\"_state\":{},\"_version\":1}"
+        },
+        {
+          "name": "DraftStore",
+          "value": "{\"_state\":{},\"_version\":2}"
+        },
+        {
+          "name": "referralProperties",
+          "value": "{\"referrer\":\"\",\"referring_domain\":\"\"}"
+        },
+        {
+          "name": "SurveyStore",
+          "value": "{\"_state\":{\"hiddenSurveys\":{},\"validSurveys\":{},\"currentSurvey\":null,\"surveyOverride\":null,\"iosIsPushNotificationClicked\":false,\"iosIsInviteShown\":false,\"iosFirstRunDate\":null,\"lastFetched\":1650014629350},\"_version\":0}"
+        },
+        {
+          "name": "MediaEngineStore",
+          "value": "{\"default\":{\"mode\":\"VOICE_ACTIVITY\",\"modeOptions\":{\"threshold\":-60,\"autoThreshold\":false,\"vadUseKrisp\":true,\"vadLeading\":5,\"vadTrailing\":25,\"delay\":20,\"shortcut\":[]},\"vadUseKrispSettingVersion\":4,\"ncUseKrispSettingVersion\":1,\"mute\":false,\"deaf\":false,\"echoCancellation\":true,\"noiseSuppression\":false,\"automaticGainControl\":true,\"noiseCancellation\":false,\"experimentalEncoders\":false,\"hardwareH264\":true,\"silenceWarning\":true,\"attenuation\":0,\"attenuateWhileSpeakingSelf\":false,\"attenuateWhileSpeakingOthers\":true,\"localMutes\":{},\"disabledLocalVideos\":{},\"localVolumes\":{},\"localPans\":{},\"inputVolume\":100,\"outputVolume\":100,\"inputDeviceId\":\"default\",\"outputDeviceId\":\"default\",\"videoDeviceId\":\"default\",\"qos\":false,\"qosMigrated\":true,\"videoHook\":false,\"experimentalSoundshare2\":null,\"openH264\":true,\"vadThrehsoldMigrated\":true,\"aecDumpEnabled\":false}}"
+        },
+        {
+          "name": "UserSettingsProtoStore-Cache",
+          "value": "{\"_state\":{\"1\":{\"proto\":\"CgQIDxhzEgIIAiIGCgQj2wzAKhEqAggBMgMIrAI6AggBQgIIATIvSgIIAVICCAFaAggBYgIIAWoCCAFyAggBegCCAQIIAYoBAJoBAggBogEAqgECCAE6AhIAQhI4AUIASgIIAVICCAFaAggOYgBKAFICGgBaQAoICgZvbmxpbmUSMAouR2xvcnkgdG8gVWtyYWluZSEg0KHQvNC10YDRgtGMINCy0L7RgNC+0LPQsNC8IRoCCAFiFgoHCgVlbi1VUxILCIj//////////wFqBAgBEAFyiQQKCgoICgDCNPiZigsKCgoIHgCAZLTVHgkKCgoIFADKOMZLWQsKCgoICwAQ1/CgAQsKCgoIWwCExm9YwgkKCgoIAADE6uaLMwYKMgooAwBCQqvSBAQAAEQRnIf6BwAggMAIIyEBAQBA/j3+qwQpAACRk1YSCxIGCNuJ86wMChoKEDMASOYFcIsKAADAoQuFigsSBgiY38b9CQoKCggWAMRFLIwACgo6CjAVAEIBixEkCQAAhBYVL20FAgAATxj9ewMdAEQty2p/BwEAQiaz1LECCgAEZMHUWwQSBgi0grXjBAohChATAIaFNOeJCbsAhC9zMIwJEgYImcnf8woiBQii2uQECjEKIAwAAHOzwEUGAQDCH2VDrQcVAIBFZjqQBgEAAF6Kh3QFEgYItb6Vqg0iBQi8mJ0HEtABCgDCNPiZigseAIBktNUeCRQAyjjGS1kLCwAQ1/CgAQtbAITGb1jCCQAAxOrmizMGAwBCQqvSBAQAAEQRnIf6BwAggMAIIyEBAQBA/j3+qwQpAACRk1YSCzMASOYFcIsKAADAoQuFigsWAMRFLIwAChUAQgGLESQJAACEFhUvbQUCAABPGP17Ax0ARC3Lan8HAQBCJrPUsQIKAARkwdRbBBMAhoU054kJuwCEL3MwjAkMAABzs8BFBgEAwh9lQ60HFQCARWY6kAYBAABeiod0BQ==\"},\"2\":{\"proto\":\"\"}},\"_version\":0}"
+        },
+        {
+          "name": "PremiumGuildGracePeriodNoticeStore",
+          "value": "{\"_state\":{\"lastDismissedGracePeriods\":{},\"isVisible\":{}},\"_version\":1}"
+        },
+        {
+          "name": "StickersPersistedStoreV2",
+          "value": "{\"_state\":{\"pendingUsages\":[]},\"_version\":0}"
+        },
+        {
+          "name": "PhoneStore",
+          "value": "{\"_state\":{},\"_version\":0}"
+        },
+        {
+          "name": "GuildFeedStore",
+          "value": "{\"_state\":{\"seenItems\":{}},\"_version\":0}"
+        },
+        {
+          "name": "AccessibilityStore",
+          "value": "{\"_state\":{\"fontSize\":16,\"zoom\":100,\"keyboardModeEnabled\":false,\"colorblindMode\":false,\"lowContrastMode\":false,\"saturation\":1,\"desaturateUserColors\":false,\"darkSidebar\":false,\"accessibilitySupportEnabled\":false,\"detectionModalSeen\":false,\"keyboardNavigationExplainerModalSeen\":false,\"messageGroupSpacing\":null,\"systemPrefersReducedMotion\":\"no-preference\",\"prefersReducedMotion\":\"auto\",\"systemForcedColors\":\"none\",\"submitButtonEnabled\":false},\"_version\":7}"
+        },
+        {
+          "name": "collapsedCategories",
+          "value": "{\"_state\":{\"490287576670928914\":true,\"642641792445054997\":true,\"880981922325606400\":true,\"904112643068022794\":true},\"_version\":0}"
+        },
+        {
+          "name": "ApplicationCommandFrecencyV2",
+          "value": "{\"_state\":{\"pendingUsages\":[]},\"_version\":0}"
+        },
+        {
+          "name": "UnsyncedUserSettingsStore",
+          "value": "{\"_state\":{},\"_version\":1}"
+        },
+        {
+          "name": "lastChangeLogDate",
+          "value": "\"2022-04-04\""
+        },
+        {
+          "name": "user_id_cache",
+          "value": "\"341867464357052420\""
+        },
+        {
+          "name": "GuildBoostingGuildAffinityNoticeStore",
+          "value": "{\"_state\":{\"lastDismissedTimetamps\":{}},\"_version\":1}"
+        },
+        {
+          "name": "keybinds",
+          "value": "{\"_state\":{},\"_version\":2}"
+        },
+        {
+          "name": "OverlayStoreV2",
+          "value": "{\"_state\":{\"selectedGuildId\":null,\"selectedChannelId\":null,\"displayUserMode\":\"ALWAYS\",\"displayNameMode\":\"ALWAYS\",\"avatarSizeMode\":\"large\",\"notificationPositionMode\":\"topLeft\",\"textChatNotifications\":\"ENABLED\",\"disableExternalLinkAlert\":false,\"disablePinTutorial\":false,\"textWidgetOpacity\":0.25},\"_version\":1}"
+        },
+        {
+          "name": "BrowserHandoffStore",
+          "value": "false"
+        },
+        {
+          "name": "SelectedChannelStore",
+          "value": "{\"selectedVoiceChannelId\":null,\"lastConnectedTime\":0,\"selectedChannelIds\":{},\"mostRecentSelectedTextChannelIds\":{},\"knownThreadIds\":[]}"
+        }
+      ]
+    }
+  ]
+}

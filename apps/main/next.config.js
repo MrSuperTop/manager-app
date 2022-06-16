@@ -75,19 +75,7 @@ const nextConfig = {
         permanent: false
       },
     ]
-  },
-  // redirects: {
-  //   source: '/login',
-  //   has: [
-  //     {
-  //       type: 'cookie',
-  //       key: 'sess_id',
-  //       value: undefined,
-  //     },
-  //   ],
-  //   destination: '/',
-  //   permanent: true,
-  // },
+  }
 };
 
 module.exports = withNx(nextConfig);

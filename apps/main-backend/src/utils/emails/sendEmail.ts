@@ -30,6 +30,8 @@ if (isProd) {
 const createTransporter = async () => {
   const transporterConfig = config.emails.nodemailer.transporter;
 
+  console.log(isProd)
+
   if (isProd) {
     const { token } = await oauth2Client.getAccessToken();
 
@@ -37,7 +39,8 @@ const createTransporter = async () => {
       ...transporterConfig,
       auth: {
         ...transporterConfig.auth,
-        accessToken: token
+        accessToken: token,
+        refreshToken: config.emails.gmail.refresh_token
       }
     });
   
@@ -54,7 +57,6 @@ export const sendEmail = async (
 ) => {
   const transporter = await createTransporter();
   const email = await transporter.sendMail(emailOptions);
-
 
   if (!isProd) {
     log.info(getTestMessageUrl(email));

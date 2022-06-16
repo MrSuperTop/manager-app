@@ -12,6 +12,8 @@ const sendConfirmationEmail = async (
   email: string,
   code: string
 ) => {
+  console.log(email)
+
   await sendEmail({
     to: email,
     html: getTemplate('confirmEmail', {

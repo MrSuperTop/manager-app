@@ -75,7 +75,7 @@ export class GoogleMethod extends Method<'google'> {
       this.isAuthenticated = true;
 
       return new GoogleClient();
-    } catch (error) { 
+    } catch (error) {
       throw InvalidCode;
     }
   }

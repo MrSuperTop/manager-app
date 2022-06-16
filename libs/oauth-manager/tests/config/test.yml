@@ -1,0 +1,12 @@
+github:
+  clientId: '10915aed9a65bb6e508b'
+  clientSecret: 'f16cdab96d0e733e9b1a67c4528138ad33b1661d'
+  redirect: 'https://manager-app-mrsupertop.vercel.app'
+google:
+  clientId: '611226891059-q4u6coip9jg6qkiat5midobpdu94mh8p.apps.googleusercontent.com'
+  clientSecret: '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'
+  redirect: 'https://manager-app-mrsupertop.vercel.app'
+discord:
+  clientId: '963526836267151391'
+  clientSecret: 'ft0DJgHQgTN1L0QMkXfXgDs1aG_ajrmH'
+  redirect: 'https://manager-app-mrsupertop.vercel.app'

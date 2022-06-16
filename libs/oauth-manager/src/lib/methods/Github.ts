@@ -71,6 +71,8 @@ export class GithubMethod extends Method<'github'> {
       }
     });
 
+    console.log()
+
     if (response.data.error === 'bad_verification_code') {
       throw InvalidCode;
     }

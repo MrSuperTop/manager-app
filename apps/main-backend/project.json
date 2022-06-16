@@ -7,13 +7,12 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "cwd": "apps/main-backend",
         "commands": [
           {
-            "command": "docker-compose -f ./docker-compose.dev.yml up -d --remove-orphans"
+            "command": "docker-compose -f ./apps/main-backend/docker-compose.dev.yml up -d --remove-orphans"
           },
           {
-            "command": "yarn prisma generate --watch & yarn swc ./src/* -d ../../dist/apps/main-backend/dist -w --config-file ./.swcrc --copy-files --delete-dir-on-start -s & yarn nodemon --watch ../../dist --ext js,yaml,json ../../dist/apps/main-backend/dist/index.js --delay 500ms"
+            "command": "yarn prisma generate --schema=./apps/main-backend/prisma/schema.prisma --watch & yarn swc ./apps/main-backend/src -d ./dist/apps -w --config-file ./apps/main-backend/.swcrc --copy-files --delete-dir-on-start -s & nodemon ./dist/apps/main-backend/src/index.js --delay 500ms"
           }
         ]
       },
@@ -28,11 +27,8 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
-        "cwd": "apps/main-backend",
         "commands": [
-          {
-            "command": "yarn swc ./src/* -d ../../dist/apps/main-backend/dist --config-file ./.swcrc --copy-files --delete-dir-on-start -s"
-          }
+          "yarn swc ./apps/main-backend/src -d ./dist/apps --config-file ./apps/main-backend/.swcrc --copy-files --delete-dir-on-start"
         ]
       },
       "dependsOn": [
@@ -42,27 +38,14 @@
         }
       ]
     },
-    "migrate": {
+    "migrate-prod": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "parallel": false,
         "cwd": "apps/main-backend",
         "commands": [
-          {
-            "command": "yarn prisma migrate dev"
-          }
-        ]
-      }
-    },
-    "migrate-force": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "parallel": false,
-        "cwd": "apps/main-backend",
-        "commands": [
-          {
-            "command": "yarn prisma db push --force-reset"
-          }
+          "yarn prisma migrate deploy --schema=./apps/main-backend/prisma/schema.prisma",
+          "yarn prisma generate --schema=./apps/main-backend/prisma/schema.prisma"
         ]
       }
     },

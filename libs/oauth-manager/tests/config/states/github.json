@@ -1,0 +1,133 @@
+{
+  "cookies": [
+    {
+      "sameSite": "Lax",
+      "name": "_device_id",
+      "value": "aacadb0b1bd10cc68a1530718aaa6ace",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1681553460.044058,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "_octo",
+      "value": "GH1.1.1273688859.1650017459",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1681553460.044186,
+      "httpOnly": false,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "tz",
+      "value": "Europe%2FBusingen",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "has_recent_activity",
+      "value": "1",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1650021090.223251,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "user_session",
+      "value": "9oXdFiNvwI5Z89DK7wdcKxH3KhURQRSuLwJMTOcaESxEX2r0",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1651227082.494889,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Strict",
+      "name": "__Host-user_session_same_site",
+      "value": "9oXdFiNvwI5Z89DK7wdcKxH3KhURQRSuLwJMTOcaESxEX2r0",
+      "domain": "github.com",
+      "path": "/",
+      "expires": 1651227082.494928,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "tz",
+      "value": "Europe%2FBusingen",
+      "domain": "github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "color_mode",
+      "value": "%7B%22color_mode%22%3A%22auto%22%2C%22light_theme%22%3A%7B%22name%22%3A%22light%22%2C%22color_mode%22%3A%22light%22%7D%2C%22dark_theme%22%3A%7B%22name%22%3A%22dark_dimmed%22%2C%22color_mode%22%3A%22dark%22%7D%7D",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "logged_in",
+      "value": "yes",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1681553482.494965,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "dotcom_user",
+      "value": "MrSuperTop",
+      "domain": ".github.com",
+      "path": "/",
+      "expires": 1681553482.494978,
+      "httpOnly": true,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "_gh_sess",
+      "value": "3ceJFM9q%2BK3zrMy8wEiFnAoJzzM6GFZbb8YpAH%2B1uEVWhRCT1zrPsob05FIN9D64CQSVl9eAQ1vusAiZhZMnfpudMKD%2ByguBDdWFFyI53wOPBA8MVv1J%2FRA%2B2HitMoPEA1zxPeI1dRITD4B%2Bb2Ki5U1iG7e%2FYgB2tQJRejLmo3Gc3U6gQysmc6UNE3248RECmERCSMTDpjkilS4W%2FYkfwmWBSo7cXcyzej5qHReyBfQOeT27dj7eI2P33GpS2Fy59JOhgPVQ8jEY3dBF8X53LWB1ZViGAKofsP%2FyXO%2F5jzEux2B82n6DmpLADu3wFzZaGDw9VWTQW1%2BAIqF4Y2ky2CDnMQJxBhikrw1IphMz27BEgCd4z3fczAEkkTAtbmz9G4WKC7HJcmK0gVo7H30yzURTG7HYuzfQPMO8sxP8McSMoyoB9tifXohM2Rv2ETYvL86DqREHBMrrJAEmJ%2BFXNLu78CPsyKC4lazE6h%2BQ38yWsewWjAhc9TrXZVPlaCgiXjRMhDPHFzMw7sThafvXUkyn%2BQmtKdnR2XQ73sbthsM91UUk2UvMuUX2aW1N52qqFKe7IaPkAqwUL19He%2BqmqDcCR0swUkgj--JOXtTiI9NiipD3QJ--wJ6chC0m%2FFxTjMacwqnryA%3D%3D",
+      "domain": "github.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://github.com",
+      "localStorage": [
+        {
+          "name": "bundle-urls",
+          "value": "{\"runtime.js\":\"https://github.githubassets.com/assets/runtime-4840017dd2f7.js\",\"environment.js\":\"https://github.githubassets.com/assets/environment-bec046a69997.js\",\"5329.js\":\"https://github.githubassets.com/assets/5329-98db7da29ab9.js\",\"2486.js\":\"https://github.githubassets.com/assets/2486-d89868d3cb25.js\",\"8475.js\":\"https://github.githubassets.com/assets/8475-a8d2fbd0d71b.js\",\"github-elements.js\":\"https://github.githubassets.com/assets/github-elements-1ff179d0df8c.js\",\"element-registry.js\":\"https://github.githubassets.com/assets/element-registry-c32e3b0c5180.js\",\"5724.js\":\"https://github.githubassets.com/assets/5724-640299416084.js\",\"5388.js\":\"https://github.githubassets.com/assets/5388-1dbf1debd575.js\",\"93.js\":\"https://github.githubassets.com/assets/93-8fdb428884fb.js\",\"8932.js\":\"https://github.githubassets.com/assets/8932-24f1e0ea55c2.js\",\"1717.js\":\"https://github.githubassets.com/assets/1717-85e1b724ca10.js\",\"8646.js\":\"https://github.githubassets.com/assets/8646-b11421a6cbd6.js\",\"3682.js\":\"https://github.githubassets.com/assets/3682-07f5fdb5c39b.js\",\"3932.js\":\"https://github.githubassets.com/assets/3932-24b9e74cf858.js\",\"3826.js\":\"https://github.githubassets.com/assets/3826-6af63b920599.js\",\"5222.js\":\"https://github.githubassets.com/assets/5222-6b85a0658795.js\",\"behaviors.js\":\"https://github.githubassets.com/assets/behaviors-ed5115f37729.js\",\"7749.js\":\"https://github.githubassets.com/assets/7749-832f2a20ce72.js\",\"notifications-global.js\":\"https://github.githubassets.com/assets/notifications-global-28a2c6fa1139.js\",\"6852.js\":\"https://github.githubassets.com/assets/6852-8fd69ae26637.js\",\"4569.js\":\"https://github.githubassets.com/assets/4569-054446f2d9ff.js\",\"settings.js\":\"https://github.githubassets.com/assets/settings-4d849a90fa14.js\",\"7163.js\":\"https://github.githubassets.com/assets/7163-774ec8655094.js\",\"sessions.js\":\"https://github.githubassets.com/assets/sessions-2bef2ec52037.js\",\"light.css\":\"https://github.githubassets.com/assets/light-92c7d381038e.css\",\"dark.css\":\"https://github.githubassets.com/assets/dark-d4a90c367f0c.css\",\"frameworks.css\":\"https://github.githubassets.com/assets/frameworks-8a0f5c66450c.css\",\"behaviors.css\":\"https://github.githubassets.com/assets/behaviors-b16fd55ca209.css\",\"github.css\":\"https://github.githubassets.com/assets/github-c70d2e3f19bc.css\",\"9630.js\":\"https://github.githubassets.com/assets/9630-3e08c27bcfb1.js\",\"dashboard.js\":\"https://github.githubassets.com/assets/dashboard-ce9a09aa30a7.js\",\"6319.js\":\"https://github.githubassets.com/assets/6319-8ccdcbd5f114.js\",\"8479.js\":\"https://github.githubassets.com/assets/8479-2ccb3ec71fe2.js\",\"5623.js\":\"https://github.githubassets.com/assets/5623-0ddf61308988.js\",\"command-palette.js\":\"https://github.githubassets.com/assets/command-palette-8a08ba5d721f.js\",\"dark_dimmed.css\":\"https://github.githubassets.com/assets/dark_dimmed-7196bb0d9aaf.css\",\"site.css\":\"https://github.githubassets.com/assets/site-c0607420942f.css\",\"home.css\":\"https://github.githubassets.com/assets/home-e461cf7ec7b7.css\",\"dashboard.css\":\"https://github.githubassets.com/assets/dashboard-56a190710752.css\",\"4978.js\":\"https://github.githubassets.com/assets/4978-0971b4248c4c.js\",\"optimizely.js\":\"https://github.githubassets.com/assets/optimizely-b1f324f8aa39.js\",\"90.js\":\"https://github.githubassets.com/assets/90-c721876308de.js\",\"3878.js\":\"https://github.githubassets.com/assets/3878-c90263f4a4aa.js\",\"codespaces.js\":\"https://github.githubassets.com/assets/codespaces-8533c7078fcb.js\",\"6813.js\":\"https://github.githubassets.com/assets/6813-018aadde1dde.js\",\"6637.js\":\"https://github.githubassets.com/assets/6637-7d558462bc0d.js\",\"6791.js\":\"https://github.githubassets.com/assets/6791-017f321ec06f.js\",\"repositories.js\":\"https://github.githubassets.com/assets/repositories-8b3cef961163.js\",\"topic-suggestions.js\":\"https://github.githubassets.com/assets/topic-suggestions-ad54fb404e87.js\",\"code-menu.js\":\"https://github.githubassets.com/assets/code-menu-9bec4b6ed946.js\",\"settings.css\":\"https://github.githubassets.com/assets/settings-633a2d0392a7.css\"}"
+        },
+        {
+          "name": "feature-callout:codespaces_code_tab",
+          "value": "{\"dismissed\":true}"
+        },
+        {
+          "name": "jump_to:page_views",
+          "value": "{\"repository:MrSuperTop/insults-discord-bot\":{\"lastVisitedAt\":1650017485,\"visitCount\":1},\"repository:settings/profile\":{\"lastVisitedAt\":1650017487,\"visitCount\":1},\"repository:settings/repositories\":{\"lastVisitedAt\":1650017490,\"visitCount\":1}}"
+        }
+      ]
+    }
+  ]
+}
