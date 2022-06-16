@@ -18,7 +18,7 @@ export const getUrqlClientConfig: NextUrqlClientConfig = (
     cookie = ctx?.req?.headers.cookie;
   }
 
-  const url = isProd ? 'https://manager-node-app.herokuapp.com/graphql' : 'http://localhost:4000/graphql';
+  const url = isProd ? 'https://quotes-node-app.herokuapp.com/graphql' : 'http://localhost:4000/graphql';
 
   const config: ClientOptions = {
     url,

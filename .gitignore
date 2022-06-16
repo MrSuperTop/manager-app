@@ -42,6 +42,8 @@ testem.log
 # Tokens and prod configs
 apps/main-backend/src/config/prod.yaml
 apps/main-backend/src/config/dev.yaml
+libs/oauth-manager/tests/config/states
+libs/oauth-manager/tests/config/test.yml
 
 # System Files
 .DS_Store

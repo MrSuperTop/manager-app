@@ -5,7 +5,7 @@ import { lowerFirst, upperFirst } from 'lodash';
 export const zodAdapter = (schema: AnyZodObject) => {
   return async (values: FormikValues) => {
     const result = await schema.safeParseAsync(values);
-  
+
     if (result.success || result.error.errors.length === 0) return;
   
     const errorsMap: Record<string, string> = {};

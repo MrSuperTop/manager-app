@@ -38,7 +38,7 @@
     "lodash-es": "^4.17.21",
     "mercurius": "8.12.2",
     "mercurius-apollo-tracing": "^0.2.0",
-    "next": "12.1.6",
+    "next": "^12.1.6",
     "next-urql": "^3.3.2",
     "nodemailer": "^6.7.5",
     "nx": "^14.1.9",
