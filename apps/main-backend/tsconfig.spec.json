@@ -6,5 +6,5 @@
     "module": "commonjs",
     "types": ["jest", "node"]
   },
-  "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts", "../../libs/test-client/**/*.ts", "./tests/**/*.ts", "./src/**/*.ts", "../../libs/oauth-manager/src/lib/types/github.ts", "tests/utils/modules/user/Register.test.ts1"]
+  "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts", "../../libs/test-client/**/*.ts", "./tests/**/*.ts", "./src/**/*.ts"]
 }

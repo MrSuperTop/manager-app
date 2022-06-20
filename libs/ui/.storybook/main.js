@@ -23,13 +23,6 @@ module.exports = {
       return rule.test.toString() !== '/\\.(mjs|tsx?|jsx?)$/'
     });
 
-    for (let rule of config.module.rules) {
-      if (rule.test.toString() === '/\\.(mjs|tsx?|jsx?)$/') {
-        console.log({ value: rule.use, test: rule.test.toString() })
-        console.log(JSON.stringify(rule))
-      }
-    }
-
     config.optimization.minimizer = [
       new ESBuildMinifyPlugin({
         target: 'es2015'

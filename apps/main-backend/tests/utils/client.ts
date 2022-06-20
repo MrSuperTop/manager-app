@@ -10,6 +10,14 @@ import { TestClient } from '@nx-manager-app/test-client';
 import { join } from 'path';
 import { buildSchema } from 'type-graphql';
 import redis from '../../src/plugins/redis';
+import { PrismaClient } from '@prisma/client';
+
+declare module 'fastify' {
+  interface FastifyInstance {
+    prisma: PrismaClient
+  }
+}
+
 
 export const createTestClient = () => {
   const app = fastify();

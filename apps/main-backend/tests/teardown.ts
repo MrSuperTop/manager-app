@@ -5,7 +5,7 @@ import { clear } from './utils/prisma';
 module.exports = async () => {
   await clear();
 
-  const { port, host } = config.redis;
+  const { port, host } = config.redis.instance;
   const redis = new Redis(port, host, {
     db: 1
   });

@@ -14,7 +14,7 @@ export const clear = async () => {
           `TRUNCATE TABLE "public"."${tablename}" CASCADE;`
         );
       } catch (error) {
-        console.log({ error });
+        console.error({ error });
       }
     }
   }
