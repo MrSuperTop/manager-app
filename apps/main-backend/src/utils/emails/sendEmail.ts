@@ -30,8 +30,6 @@ if (isProd) {
 const createTransporter = async () => {
   const transporterConfig = config.emails.nodemailer.transporter;
 
-  console.log(isProd)
-
   if (isProd) {
     const { token } = await oauth2Client.getAccessToken();
 

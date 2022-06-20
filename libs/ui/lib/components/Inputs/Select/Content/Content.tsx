@@ -5,8 +5,7 @@ import Float from '../../../Float/Float';
 import ToggleChevron from '../../shared/ToggleChevron';
 import { defaultTextFieldClasses } from '../../TextField/TextField';
 import { displayValue } from '../Select';
-import { useSelectState } from '../state/SelectState';
-import { ItemsData } from '../state/types';
+import { ItemsData, useSelectState } from '../store';
 
 interface ContentProps<T extends ItemsData> {
   open: boolean,
@@ -20,7 +19,7 @@ const Content = <T extends ItemsData>({
   displayValue,
   children
 }: PropsWithChildren<ContentProps<T>>) => {
-  const { selected } = useSelectState<T[number]>();
+  const selected = useSelectState<T[number]>((state) => state.selected as T[number]);
 
   return (  
     <div

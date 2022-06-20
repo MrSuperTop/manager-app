@@ -3,15 +3,14 @@ import { useField } from 'formik';
 import { PropsWithChildren, ReactNode, useEffect } from 'react';
 import Content from './Content/Content';
 import Options from './Options';
-import SelectState, { useSelectState } from './state/SelectState';
-import { ItemData, ItemsData, Selected } from './state/types';
+import { createSelectStore, ItemData, ItemsData, SelectStateProvider, useSelectState } from './store';
 
 export type displayValue<T extends ItemData> = (data: T) => ReactNode;
 
 export interface SelectProps<T extends ItemData> {
   name: string,
   label?: string,
-  defaultValue?: Selected<T> | null,
+  defaultValue?: T | null,
   displayValue: displayValue<T>
 };
 
@@ -22,7 +21,7 @@ const Select = <T extends ItemsData>({
   defaultValue,
   ...props
 }: PropsWithChildren<SelectProps<T[number]>>) => {
-  const { selected, setSelected } = useSelectState<T[number]>();
+  const { selected, setSelected } = useSelectState();
   const { setValue } = useField(name)[2];
 
   useEffect(() => {
@@ -68,17 +67,19 @@ const Wrapper = <T extends ItemsData>({
   ...props
 }: PropsWithChildren<SelectProps<T[number]>>) => {
   return (
-    <SelectState
-      customDefaultState={{
-        selected: props.defaultValue || null
-      }}
+    <SelectStateProvider
+      createStore={createSelectStore}
+      // FIXME
+      // customDefaultState={{
+      //   selected: props.defaultValue || null
+      // }}
     >
       <Select
         {...props}
       >
         {children}
       </Select>
-    </SelectState>
+    </SelectStateProvider>
   );
 };
 

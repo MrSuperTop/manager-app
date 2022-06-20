@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "yarn nx build main-backend --skip-nx-cache && yarn nx run main-backend:migrate-prod",
-    "start": "node ./dist/apps/main-backend/src/index.js"
+    "start": "node ./dist/apps/main-backend/src/index.js",
+    "prepare": "husky install",
+    "lint": "yarn nx run-many --target=lint --all=true --verbose --parallel"
   },
   "private": true,
   "dependencies": {
@@ -117,6 +119,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "husky": "^8.0.0",
     "jest": "^28.1.0",
     "nodemon": "^2.0.16",
     "playwright": "^1.22.2",

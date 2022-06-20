@@ -4,7 +4,7 @@ import { MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
 import Loader from '../../Loader/Loader';
 import { ButtonProps, defaultButtonClasses, styleClasses } from '../Button/Button';
-import { useButtonGroupState } from '../Button/Group/state/ButtonGroupContext';
+import { useButtonGroupState } from '../Button/Group/store';
 
 type NeededButonProps = Omit<ButtonProps, 'leftIcon' | 'rightIcon' | 'loaderPlacement' | 'loadingText'>;
 
@@ -42,7 +42,7 @@ const IconButton = (
     className
   }: IconButtonProps
 ) => {
-  const { sharedProps } = useButtonGroupState();
+  const sharedProps = useButtonGroupState();
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (
     event
   ) => {
@@ -51,8 +51,8 @@ const IconButton = (
     onClick(event);
   };
 
-  colorScheme = colorScheme || sharedProps.colorScheme;
-  variant = variant || sharedProps.variant;
+  colorScheme = colorScheme || sharedProps?.colorScheme || 'primary';
+  variant = variant || sharedProps?.variant || 'default';
 
   const currentStyleClasses = styleClasses[variant][colorScheme];
   let content = (

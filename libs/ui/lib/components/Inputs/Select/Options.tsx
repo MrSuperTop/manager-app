@@ -1,6 +1,6 @@
 import { Listbox } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/outline';
-import { ItemsData } from './state/types';
+import { ItemsData } from './store';
 
 export interface OptionsProps<T extends ItemsData> {
   data: T,
