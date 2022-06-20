@@ -5,7 +5,7 @@ import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from 'react';
 import { IconType } from '../../../types/Icon';
 import Loader from '../../Loader/Loader';
 import Group from './Group/Group';
-import { useButtonGroupState } from './Group/state/ButtonGroupContext';
+import { useButtonGroupState } from './Group/store';
 
 export const defaultButtonClasses = 'inline-flex items-center rounded-lg focus:outline-none focus:ring focus:ring-opacity-50 transition cursor-pointer focus:ring-offset-2 flex items-center justify-center group-item:first:rounded-l-lg group-item:last:rounded-r-lg group-item:rounded-none';
 
@@ -87,7 +87,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   children
 }, ref) => {
-  const { sharedProps } = useButtonGroupState();
+  const sharedProps = useButtonGroupState();
   const clickHandler: MouseEventHandler<HTMLButtonElement> = (
     event
   ) => {
@@ -96,8 +96,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     onClick(event);
   };
 
-  colorScheme = colorScheme || sharedProps.colorScheme;
-  variant = variant || sharedProps.variant;
+  colorScheme = colorScheme || sharedProps?.colorScheme || 'primary';
+  variant = variant || sharedProps?.variant || 'default';
 
   const currentStyleClasses = styleClasses[variant][colorScheme];
   let content = <>

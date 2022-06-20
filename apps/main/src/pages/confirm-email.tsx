@@ -21,10 +21,6 @@ const ConfirmEmail: NextPage = () => {
   const [{ fetching }, confirmEmail] = useConfirmEmailMutation();
   const router = useRouter();
 
-  if (!user) {
-    return;
-  }
-
   useEffect(() => {
     if (user.emailConfirmed) {
       toast.error('Your email is already confirmed');
@@ -48,6 +44,10 @@ const ConfirmEmail: NextPage = () => {
       setConfirmationToken(token);
     });
   }, []);
+
+  if (!user) {
+    return;
+  }
 
   return (
     <Wrapper

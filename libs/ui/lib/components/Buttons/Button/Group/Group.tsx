@@ -1,5 +1,5 @@
-import { ButtonGroupContext, defaultState } from './state/ButtonGroupContext';
-import { SharedProps } from './state/types';
+import { PropsWithChildren } from 'react';
+import { ButtonGroupContextProvider, createButtonGroupStore, SharedProps, State } from './store';
 
 export type GroupProps = Partial<SharedProps>;
 
@@ -7,7 +7,7 @@ export type GroupProps = Partial<SharedProps>;
 const Group = (
   {
     children
-  }: GroupProps
+  }: PropsWithChildren<GroupProps>
 ) => {
   return (
     <div
@@ -18,27 +18,32 @@ const Group = (
   );
 };
 
+const DEFAULT_STATE: State['sharedProps'] = {
+  colorScheme: 'primary',
+  variant: 'default'
+};
+
 const Wrapper = (
   {
     children,
     ...props
-  }: GroupProps
+  }: PropsWithChildren<GroupProps>
 ) => {
   return (
-    <ButtonGroupContext.Provider
-      value={{
-        sharedProps: {
-          ...defaultState.sharedProps,
+    <ButtonGroupContextProvider
+      createStore={
+        createButtonGroupStore({
+          ...DEFAULT_STATE,
           ...props
-        }
-      }}
+        })
+      }
     >
       <Group
         {...props}
       >
         {children}
       </Group>
-    </ButtonGroupContext.Provider>
+    </ButtonGroupContextProvider>
   );
 };
 

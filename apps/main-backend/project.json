@@ -20,6 +20,10 @@
         {
           "target": "build",
           "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
         }
       ]
     },

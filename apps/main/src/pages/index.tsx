@@ -9,7 +9,10 @@ export function Index() {
 
   if (fetching) {
     return (
-      <div>
+      <div
+        className='w-full h-screen flex-center items-center gap-2'
+      >
+        Waiting for response...
         <Loader />
       </div>
     );
