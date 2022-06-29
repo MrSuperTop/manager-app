@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance, LightMyRequestResponse } from 'fastify';
 import { DocumentNode } from 'graphql';
 import { QueryOptions } from './types/QueryOptions';
 
@@ -25,7 +25,7 @@ export class TestClient {
     options: QueryOptions = {
       applyCookies: true
     }
-  ) {
+  ): Promise<LightMyRequestResponse> {
     const response = await this.app.inject({
       method: 'POST',
       url: '/graphql',

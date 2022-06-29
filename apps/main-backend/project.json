@@ -4,26 +4,16 @@
   "projectType": "application",
   "targets": {
     "serve": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "./tools/executors/prisma:serve",
       "options": {
-        "parallel": false,
-        "commands": [
-          {
-            "command": "docker-compose -f ./apps/main-backend/docker-compose.dev.yml up -d --remove-orphans"
-          },
-          {
-            "command": "yarn prisma generate --schema=./apps/main-backend/prisma/schema.prisma --watch & yarn swc ./apps/main-backend/src -d ./dist/apps -w --config-file ./apps/main-backend/.swcrc --copy-files --delete-dir-on-start -s & nodemon ./dist/apps/main-backend/src/index.js --delay 500ms"
-          }
-        ]
+        "cwd": "./apps/main-backend",
+        "outDir": "./dist/apps",
+        "entryPoint": "./main-backend/src/index.js"
       },
       "dependsOn": [
         {
           "target": "build",
           "projects": "dependencies"
-        },
-        {
-          "target": "build",
-          "projects": "self"
         }
       ]
     },
@@ -32,7 +22,7 @@
       "options": {
         "parallel": false,
         "commands": [
-          "yarn swc ./apps/main-backend/src -d ./dist/apps --config-file ./apps/main-backend/.swcrc --copy-files --delete-dir-on-start"
+          "pnpm swc ./apps/main-backend/src -d ./dist/apps --config-file ./apps/main-backend/.swcrc --copy-files --delete-dir-on-start"
         ]
       },
       "dependsOn": [
@@ -48,8 +38,8 @@
         "parallel": false,
         "cwd": "apps/main-backend",
         "commands": [
-          "yarn prisma migrate deploy --schema=./apps/main-backend/prisma/schema.prisma",
-          "yarn prisma generate --schema=./apps/main-backend/prisma/schema.prisma"
+          "pnpm prisma migrate deploy --schema=./apps/main-backend/prisma/schema.prisma",
+          "pnpm prisma generate --schema=./apps/main-backend/prisma/schema.prisma"
         ]
       }
     },
@@ -60,12 +50,9 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [],
-      "dependsOn": [],
+      "executor": "./tools/executors/prisma:test",
       "options": {
-        "verbose": true,
-        "jestConfig": "apps/main-backend/jest.config.js"
+        "cwd": "apps/main-backend"
       }
     }
   },

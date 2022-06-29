@@ -1,0 +1,14 @@
+{
+  "executors": {
+    "test": {
+      "implementation": "./src/test.impl",
+      "schema": "./schema/test.json",
+      "description": "Runs tests with prisma migration for a project"
+    },
+    "serve": {
+      "implementation": "./src/serve.impl",
+      "schema": "./schema/serve.json",
+      "description": "Serves a project using swc and nodemon after running prisma migrations"
+    }
+  }
+}

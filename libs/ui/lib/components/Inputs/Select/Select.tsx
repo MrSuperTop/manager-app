@@ -69,7 +69,7 @@ const Wrapper = <T extends ItemsData>({
   return (
     <SelectStateProvider
       createStore={createSelectStore}
-      // FIXME
+      // TODO: Implament passing a default selected variant and a variant in Select.stories.tsx
       // customDefaultState={{
       //   selected: props.defaultValue || null
       // }}

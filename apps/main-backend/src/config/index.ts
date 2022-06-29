@@ -71,9 +71,9 @@ interface Config {
   }
 }
 
-let relativeFilePath = '../dev.yaml';
+let relativeFilePath = '../dev.yml';
 if (isProd) {
-  relativeFilePath = '../prod.yaml';
+  relativeFilePath = '../prod.yml';
 }
 
 const file = readFileSync(join(__filename, relativeFilePath)).toString();

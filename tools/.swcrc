@@ -1,0 +1,13 @@
+{
+  "test": ".*.ts$",
+  "module": {
+    "type": "commonjs"
+  },
+  "jsc": {
+    "target": "es2017",
+    "externalHelpers": true,
+    "parser": {
+      "syntax": "typescript"
+    }
+  }
+}

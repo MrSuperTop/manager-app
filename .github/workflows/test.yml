@@ -1,0 +1,45 @@
+name: Testing workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        ports:
+        - 6379:6379
+      postgres:
+        image: postgres
+        ports:
+        - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        # cache: 'pnpm'
+    - name: 'Install dependencies'
+      run: pnpm install
+    - name: Decrypt secrets
+      run: pnpm decrypt-secrets
+      env:
+        SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
+    - name: 'Run tests'
+      run: pnpm test
+      env:
+        DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/test_db?schema=public'

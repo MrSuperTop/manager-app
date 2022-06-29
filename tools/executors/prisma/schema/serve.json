@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "cli": "nx",
+  "required": ["cwd"],
+  "properties": {
+    "cwd": {
+      "type": "string",
+      "description": "path to the project folder"
+    },
+    "outDir": {
+      "type": "string",
+      "description": "path to the compiler output folder"
+    },
+    "entryPoint": {
+      "type": "string",
+      "description": "path to the file which will be continiusoly exectued after compilation. Has to be relative to the outDir paramethers"
+    },
+    "runDocker": {
+      "type": "boolean",
+      "description": "determines whether the docker-compose command has to be used to spin up auxiliary conatainers",
+      "default": true
+    },
+    "paths": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "default": "prisma/schema.prisma",
+          "description": "path to the prisma schema"
+        },
+        "dockerCompose": {
+          "type": "string",
+          "default": "docker-compose.dev.yml",
+          "description": "path to the docker-compose configruration file"
+        }
+      }
+    },
+    "swc": {
+      "type": "object",
+      "properties": {
+        "sourceDir": {
+          "type": "string",
+          "default": "src",
+          "description": "path to the directory to be compiled with swc relative to the cwd param"
+        },
+        "config": {
+          "type": "string",
+          "default": ".swcrc",
+          "description": "path to the .swcrc file relative to the cwd param"
+        }
+      }
+    }
+  }
+}
